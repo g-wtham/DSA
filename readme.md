@@ -2,8 +2,6 @@
 
 ### Logic Building:
 
-#### Patterns:
-
-`Stars`: Increasing right angled triangle, decreasing triangle, inverted triangle, diamond-shaped triangle, half-diamond pattern
-   
-`Numbers`: Increasing right angled triangle, repeating numbered triangle
+1. #### Patterns:
+   1. `Stars`: Increasing right angled triangle, decreasing triangle, inverted triangle, diamond-shaped triangle, half-diamond pattern
+   2. `Numbers`: Increasing right angled triangle, repeating numbered triangle
