@@ -3,6 +3,6 @@
 ### Logic Building:
     1. Patterns:
         `Stars`:
-        - Increasing right angled triangle, decreasing triangle, inverted triangle
+        - Increasing right angled triangle, decreasing triangle, inverted triangle, diampnd triangle
         `Numbers`"
         - Increasing right angled triangle, repeating numbered triangle
