@@ -124,3 +124,22 @@ def crown_pattern():
 # Came up with formulas and structure, everything on own.
 
 crown_pattern()
+
+def increasing_number_triangle():
+    '''
+    i = 0: [i+1] → [1]
+    i = 1: [i+1, i+2] → [2, 3]
+    i = 2: [i+1, i+2, i+3] → [3, 4, 5]
+    i = 3: [i+1, i+2, i+3, i+4] → [4, 5, 6, 7]
+    i = 4: [i+1, i+2, i+3, i+4, i+5] → [5, 6, 7, 8, 9]   
+    
+    '''
+    n = 5
+    num = 1
+    for i in range(n):
+        for x in range(1, i+2):
+            print(num , end=" ")
+            num += 1
+        print()
+    
+increasing_number_triangle()
