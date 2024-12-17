@@ -67,3 +67,25 @@ def half_diamond_pattern():
         print()
         
 half_diamond_pattern()
+
+def binary_right_triangle():
+    n=5
+    start = 1
+    for i in range(n): #controls the rows
+        if i%2 == 0:
+            start = 1
+        else:
+            start = 0
+        
+        for j in range(i+1): 
+            
+            '''
+            If i+1 is not given and if its range(i), then for range(i) -> [0], [0, 1], [0, 1, 2], [0, 1, 2, 3]. [0, 1, 2, 3, 4] ~ n=5 
+            (Loop ran 5 times). But, in range([0]), no element is printed as it is an empty range.
+            And, start variable is altered and logic gets reversed. Only 4 visible lines of alternate 1s and 0s are printed.
+            '''
+            print(start, end=" ")
+            start = 1 - start
+        print()
+        
+binary_right_triangle()
