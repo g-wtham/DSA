@@ -89,3 +89,38 @@ def binary_right_triangle():
         print()
         
 binary_right_triangle()
+
+def crown_pattern():
+    '''
+    Outer loop : n -> 4
+
+    [1, 0, 0, 0, 0, 0, 0, 1]
+    [1, 2, 0, 0, 0, 0, 2, 1]
+    [1, 2, 3, 0, 0, 3, 2, 1]
+    [1, 2, 3, 4, 4, 3, 2, 1]
+
+    Inner loops:
+        i. 1st loop - Numbers -> [1, (i+1)]
+        ii. 2nd loop - Space [6, 4, 2, 0] -> [2 * n - (2 * i + 2)]
+        iii. 3rd loop - Numbers -> [i+1, 0, -1]
+
+    (Outer loop)
+        (Inner loop)
+        (New line)
+    --- start next iteration ---
+   
+    '''
+    n = 4
+    for i in range(n):
+        for x in range(1, i+2):
+            print(x, end="")
+        for y in range(2 * n - (2 * i + 2)):
+            print(" ", end="")
+        for z in range(i+1, 0, -1):
+            print(z, end="")
+        print()
+        
+# Key moment: Solved the entire problem without looking up any reference. 
+# Came up with formulas and structure, everything on own.
+
+crown_pattern()
