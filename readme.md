@@ -12,4 +12,5 @@
    2. Prime Number or not
    3. GCD of 2 given numbers
    4. Reverse a given number
+   5. Check palindrome
 
