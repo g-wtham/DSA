@@ -42,3 +42,13 @@ def gcd(n1, n2):
     return gcd
 
 print(gcd(32, 97))
+
+def rev_number(n):
+    rev = 0
+    while (n != 0):
+        lastDigit = n%10
+        rev = (rev * 10) + lastDigit
+        n = n // 10
+    return rev
+
+print(rev_number(225))
