@@ -52,3 +52,17 @@ def rev_number(n):
     return rev
 
 print(rev_number(225))
+
+def palindrome_check(n):
+    dup = n
+    rev = 0
+    while (n != 0):
+        lastDigit = n%10
+        rev = (rev * 10) + lastDigit
+        n = n // 10
+    if (rev == dup):
+        print("Palindrome")
+    else:
+        print("Not a palindrome")
+        
+palindrome_check(252)
