@@ -32,3 +32,13 @@ def prime_numbers(n):
         print("Not prime")
 
 prime_numbers(789)
+
+def gcd(n1, n2):
+    gcd = 1
+    for i in range(min(n1, n2), 1, -1): # Running till min(n1, n2) is enough, as GCD of 2 numbers cant exceed the minimum one, as it has to be the common highest factor.
+        if (n1%i == 0 and n2%i == 0):   # Remember, 'i' is the NUMBER which divides the GIVEN number iteratively (current iteration, i == current divisor of GIVEN NO.)
+            gcd = i
+            break
+    return gcd
+
+print(gcd(32, 97))
