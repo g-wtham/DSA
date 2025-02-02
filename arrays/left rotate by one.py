@@ -17,3 +17,23 @@ def leftRotatebyOne(arr):
     return arr
 
 print(leftRotatebyOne(arr))
+
+arr1 = [1,2,3,4,5]
+
+def leftRotatebyK(arr, k):
+    n = len(arr)
+    k = k % n # To reduce the rotation steps, if k > n i.e. 21 > 5 == effects similar to 1 rotation ..
+    temp = arr[0:k]
+    
+    for i in range(k, n):
+        arr[i-k] = arr[i]
+        
+    j = 0    
+    for z in range(n-k, n):
+        arr[z] = temp[j]
+        j += 1
+        
+    return arr
+
+print(leftRotatebyK(arr1, 2))
+
