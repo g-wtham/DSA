@@ -11,10 +11,11 @@ def isBalanced(s):
     
     for char in s:
         if char in mapping:  # If closing bracket
-            if stack:
-                top = stack.pop()
-            else:
+            
+            if len(stack) == 0:
                 return False
+            else:
+                top = stack.pop()
             
             if mapping[char] != top:
                 return False
