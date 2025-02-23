@@ -6,17 +6,21 @@ An input string is valid if:
          2. Open brackets must be closed in the correct order.
 '''
 def isBalanced(s):
-    me = {')' : '(', '}':'{', ']' : '['}
     stack = []
+    mapping = {")": "(", "}": "{", "]": "["}
+    
     for char in s:
-        if char in '({[':
+        if char in mapping:  # If closing bracket
+            if stack:
+                top = stack.pop()
+            else:
+                return False
+            
+            if mapping[char] != top:
+                return False
+        else:
             stack.append(char)
-        elif char in ')}]':
-            if not stack:
-                return False
-            top = stack.pop()
-            if top != me[char]:
-                return False
+    
     return not stack
 
 print(isBalanced('[{}]'))
