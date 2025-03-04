@@ -1,4 +1,4 @@
-arr = [1,7,2, 5, 6, 9]
+arr = [1, 7, 2, 5, 6, 9]
 
 for i in range(len(arr)):
     count = 0
