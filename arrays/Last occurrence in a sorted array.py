@@ -31,7 +31,7 @@ def first_occur(target, arr):
         mid = (left+right) // 2
         if arr[mid] == target:
             result2 = mid
-            right = mid - 1
+            right = mid - 1 # without pointer adjustment, the loop will keep running infinitely even if mid element is found, and we tried to print the `mid` which is not the first occurence though, yet even trying to printing the `mid` will lead to error
         
         elif arr[mid] < target:
             left = mid + 1
