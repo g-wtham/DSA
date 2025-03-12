@@ -9,8 +9,9 @@ n = len(array)
 def Bruteforce_SubarraySum(nums, k):
     count = 0
     for i in range(n):
+        subarraySum = 0
         for j in range(i, n):
-            subarraySum = sum(nums[i:j+1])
+            subarraySum += nums[j]
             
             if subarraySum == k:
                 count += 1
