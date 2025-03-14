@@ -15,11 +15,9 @@ print(unique)
 
 n1 = len(arr)
 seen = set()
-unique1 = []
 
 for item in arr:
     if item not in seen:
-        unique1.append(item)
         seen.add(item)
 
-print(unique1)
+print(seen)
