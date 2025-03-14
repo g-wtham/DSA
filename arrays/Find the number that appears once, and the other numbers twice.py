@@ -30,3 +30,16 @@ xor => 2 properties : 1. same numbers -> 1 ^ 1 = 0 (or) 0 ^ 0 = 0
 1 -> 0001
 2 -> 0010
 '''
+
+arr1 = [4,1,2,1,2]
+seen = set()
+duplicates = set()
+for item in arr1:
+    if item not in seen:
+        seen.add(item)
+    else:
+        duplicates.add(item)
+        
+for item in seen:
+    if item not in duplicates:
+        print(item)
