@@ -35,3 +35,13 @@ for i in range(1, max(items)+1):
     if i not in items:
         missing_num.append(i)
 print(missing_num)
+
+items = [1,3,4,5]
+sum_ac = 0
+sum_expe = 0
+for i in range(1, max(items)+1):
+    sum_ac += i
+for item in items:
+    sum_expe += item
+    
+print(sum_ac - sum_expe)
