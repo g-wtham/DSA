@@ -29,12 +29,14 @@ print(insertPos(arr, target))
 ceil  = the smallest value which is larger than the target (i.e.. target >= arr[mid])
 floor = the largest value which is smaller than the target (i.e.. target <= arr[mid])
 
-If element is already present in the array, the floor & ceil are same as the target.
-
 We store the value of each index in 2 variables, as we need to keep track until we met with the condition:
                 target <= arr[mid]; 
                 target >= arr[mid];
 as it will help us return the last known best value
 
 If floor or ceil isn't found, -1 will be returned, if the array doesnt contain the required values necessary to meet the condition.
+
+Use == when an exact match means we can stop searching (e.g., getFloorAndCeil), as if element is already present in the array, the floor & ceil are same as the target.
+
+Use >= when looking for the smallest valid ceil, ensuring we check the left side for a better option.
 '''
