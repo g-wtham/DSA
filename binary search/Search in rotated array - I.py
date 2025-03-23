@@ -1,5 +1,5 @@
-arr = [4,5,6,7,0,1,2,3]
-k = 3
+arr = [4,5,6,0,1,2,3]
+k = 5
 
 '''
 1. Find unsorted part
@@ -22,10 +22,17 @@ def searchRotated(arr, k):
         mid = (low+high)//2
         if arr[mid] == k:
             return mid
-        elif arr[low] <= k <= arr[mid]:
-            high = mid-1
+        if arr[low] <= arr[mid]:
+            if arr[low] <= k <= arr[mid]:
+                high = mid-1
+            else:
+                low = mid + 1
         else:
-            low = mid+1
+            if arr[mid] <= arr[high]:
+                if arr[mid] <= k <= arr[high]:
+                    low = mid + 1
+                else:
+                    high = mid-1               
             
     return mid
 
