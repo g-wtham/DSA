@@ -6,8 +6,6 @@ def minSortedArray(arr):
     minEle = sys.maxsize
     while low <= high:
         mid = (low+high)//2
-        if arr[mid] <= minEle:
-            return arr[mid]
         if arr[low] <= arr[mid]:
             minEle = min(minEle, arr[low])
             low = mid+1
