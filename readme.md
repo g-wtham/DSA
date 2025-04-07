@@ -14,3 +14,7 @@
    4. Reverse a given number
    5. Check palindrome
 
+3. Arrays
+
+4. Strings
+
