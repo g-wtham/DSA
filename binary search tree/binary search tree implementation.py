@@ -33,5 +33,19 @@ root = insert(root, 70)
 
 print(root.left.data, root.data, root.right.data)
         
-        
-        
+def search(root, key):
+    
+    if root is None:
+        return None
+    
+    if root.data == key:
+        return root
+    
+    if key < root.data:
+        return search(root.left, key)
+    else:
+        return search(root.right, key)
+
+root = insert(root, 80)
+
+print(search(root, 50))
