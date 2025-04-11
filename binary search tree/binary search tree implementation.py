@@ -47,5 +47,15 @@ def search(root, key):
         return search(root.right, key)
 
 root = insert(root, 80)
+res = search(root, 50)
+print(res.data)
 
-print(search(root, 50))
+def traversal(root):
+    if root is None:
+        return
+    traversal(root.left)
+    print(root.data, end=" ")
+    traversal(root.right)
+        
+print("Inorder: ")
+traversal(root)
