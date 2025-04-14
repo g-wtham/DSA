@@ -26,45 +26,45 @@ class Queue_using_arrays:
 
             
     def pop(self):
+        cpy_pop_ele = self.array[self.start]
+
         if self.current_size == 0:
             return
-        
+            
         elif self.current_size == 1:
-            cpy_pop = self.array[self.start]
             self.array[self.start] = None
             self.start = self.end = -1
-            self.current_size = 0
-            return cpy_pop
-            
+                        
         else:
-            cpy = self.array[self.start]
             self.array[self.start] = None
             self.start = (self.start+1) % self.capacity
-            self.current_size -= 1
-            return cpy
+        
+        self.current_size -= 1
+        
+        return cpy_pop_ele
         
     def peek(self):
         if self.current_size == 0:
-            return "Empty"
+            return 
         
         return self.array[self.start]
 
         
         
 queue = Queue_using_arrays(4)
-print(queue.array)
+print("Array Elements: ", queue.array)
 queue.push(20)
 queue.push(30)
 queue.push(40)
 queue.push(70)
-print(queue.array)
-print(queue.pop())
-print(queue.pop())
-print(queue.array)
-print(queue.current_size)
-print(queue.pop())
-print(queue.array)
-print(queue.peek())
-print(queue.pop())
-print(queue.array)
-print(queue.peek())
+print("Array Elements: ", queue.array)
+print("Popped Element: ", queue.pop())
+print("Popped Element: ", queue.pop())
+print("Array Elements: ", queue.array)
+print("Current Size: ",queue.current_size)
+print("Popped Element: ", queue.pop())
+print("Array Elements: ", queue.array)
+print("Peek Element: ", queue.peek())
+print("Popped Element: ", queue.pop())
+print("Array Elements: ", queue.array)
+print("Peek Element: ", queue.peek())
