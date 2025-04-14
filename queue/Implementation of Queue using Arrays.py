@@ -11,9 +11,12 @@ class Queue_using_arrays:
             self.start = self.end = 0
             self.array[self.end] = item
             self.current_size += 1
+            
+        elif self.current_size == self.capacity:
+            return "Can't push"
         
         elif self.current_size < self.capacity:
-            self.end += 1
+            self.end = (self.end + 1) % self.capacity
             self.array[self.end] = item
             self.current_size += 1
             
@@ -23,34 +26,45 @@ class Queue_using_arrays:
 
             
     def pop(self):
-        if self.start and self.end == -1:
+        if self.current_size == 0:
             return
         
-        elif self.current_size < self.capacity:
-            cpy = self.start
-            self.array[self.start] = 0
-            self.start += 1
-            return self.array[cpy]
+        elif self.current_size == 1:
+            cpy_pop = self.array[self.start]
+            self.array[self.start] = None
+            self.start = self.end = -1
+            self.current_size = 0
+            return cpy_pop
             
         else:
-            self.start = (self.start + 1) % self.capacity
-            cpy = self.start
+            cpy = self.array[self.start]
             self.array[self.start] = None
-            self.start += 1
-            return self.array[cpy]
-
+            self.start = (self.start+1) % self.capacity
+            self.current_size -= 1
+            return cpy
         
     def peek(self):
+        if self.current_size == 0:
+            return "Empty"
+        
         return self.array[self.start]
+
         
         
-queue = Queue_using_arrays(10)
+queue = Queue_using_arrays(4)
 print(queue.array)
 queue.push(20)
 queue.push(30)
+queue.push(40)
+queue.push(70)
+print(queue.array)
+print(queue.pop())
+print(queue.pop())
 print(queue.array)
 print(queue.current_size)
-print(queue.peek())
-queue.pop()
+print(queue.pop())
 print(queue.array)
-
+print(queue.peek())
+print(queue.pop())
+print(queue.array)
+print(queue.peek())
