@@ -50,7 +50,7 @@ class LinkedList:
                 self.head = start.next
                 return
             
-            while start.next:
+            while start:
                 if start.next.data == key:
                     start.next = start.next.next
                     break
@@ -62,9 +62,9 @@ class LinkedList:
         while start:
             if count == key-1:
                 insert_node = Node(value)
-                insert_node.next = start.next 
-                start.next = insert_node
-                break
+                insert_node.next = start.next # [1, 2, 3] => [1, 2, [data=>2; next=>insert_node pointer] [data=>4; next=>node 3 pointer (3),  3]
+                start.next = insert_node       # Update newly inserted node NEXT with the next element (4)-->(3)
+                break                          # Update current position NEXT , which is before newly inserted element with NEWLY inserted element pointer [(2)-->(4)]
             start = start.next
             count += 1
             
