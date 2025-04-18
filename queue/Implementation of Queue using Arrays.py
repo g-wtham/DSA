@@ -15,14 +15,11 @@ class Queue_using_arrays:
         elif self.current_size == self.capacity:
             return "Can't push"
         
-        elif self.current_size < self.capacity:
-            self.end = (self.end + 1) % self.capacity
-            self.array[self.end] = item
-            self.current_size += 1
-            
         else:
-            self.end = (self.end + 1) % self.capacity
-            self.array[self.end] = item
+            if self.current_size < self.capacity:
+                self.end = (self.end + 1) % self.capacity
+                self.array[self.end] = item
+                self.current_size += 1
 
             
     def pop(self):
