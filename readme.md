@@ -18,3 +18,8 @@
 
 4. Strings
 
+5. BST
+
+6. Queue & Stack Implementations
+
+7. LinkedList 
