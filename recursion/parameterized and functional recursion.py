@@ -68,3 +68,21 @@ def f(i, j):
 
 f(0, 4)    
 print(arr)
+
+arr = ['M','A', 'M']
+arr2 = ['M','A', 'M']
+
+def swap_pal(i, j):
+    temp = arr[i]
+    arr[j] = arr[i]
+    arr[i] = temp
+
+def palindrome(i, j):
+    if j < i:
+        return
+    swap(i, j)
+    palindrome(i+1, j-1)
+    
+palindrome(0, 2)
+if arr == arr2:
+    print("Palindrome")
