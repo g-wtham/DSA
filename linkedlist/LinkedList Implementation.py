@@ -68,19 +68,52 @@ class LinkedList:
             start = start.next
             count += 1
             
+    def deletion_at_mid(self):
+        if self.head and self.head.next is None:
+            return
+        
+        fast = self.head
+        slow = self.head
+        
+        while fast and fast.next:
+            fast = fast.next.next
+            previous = slow
+            slow = slow.next
+            
+        previous.next = slow.next
+        
+    def last_before_before(self):
+        start = self.head
+        while start.next.next.next:
+            start = start.next
+        
+        node_to_delete = start.next
+        start.next = node_to_delete.next
         
 ll = LinkedList()
-ll.prepend(10)
-ll.prepend(20)
-ll.print_list()
+# ll.prepend(10)
+# ll.prepend(20)
+# ll.print_list()
+# ll.append(30)
+# ll.append(40)
+# ll.print_list()
+# ll.deletion_at_k_position(30)
+# ll.append(50)
+# ll.append(60)
+# ll.print_list()
+# ll.deletion_at_end()
+# ll.print_list()
+# ll.insertion_at_k_position(30, 3)
+# ll.print_list()
+# ll.deletion_at_mid()
+# ll.print_list()
+ll.append(10)
+ll.append(20)
 ll.append(30)
 ll.append(40)
-ll.print_list()
-ll.deletion_at_k_position(30)
 ll.append(50)
 ll.append(60)
-ll.print_list()
-ll.deletion_at_end()
-ll.print_list()
-ll.insertion_at_k_position(30, 3)
+ll.append(70)
+ll.append(80)
+ll.last_before_before()
 ll.print_list()
