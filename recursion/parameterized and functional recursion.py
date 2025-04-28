@@ -74,8 +74,8 @@ arr2 = ['M','A', 'M']
 
 def swap_pal(i, j):
     temp = arr[i]
-    arr[j] = arr[i]
-    arr[i] = temp
+    arr[i] = arr[j]
+    arr[j] = temp
 
 def palindrome(i, j):
     if j < i:
@@ -86,3 +86,14 @@ def palindrome(i, j):
 palindrome(0, 2)
 if arr == arr2:
     print("Palindrome")
+       
+    
+arr = [1,2,3,4,5]
+def single_var_palindrome(i):
+    if i>n//2:
+        return
+    swap(i, len(arr)-i-1)
+    single_var_palindrome(i+1)
+     
+single_var_palindrome(0)
+print(arr)
