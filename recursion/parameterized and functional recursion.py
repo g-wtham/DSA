@@ -77,15 +77,15 @@ def swap_pal(i, j):
     arr[i] = arr[j]
     arr[j] = temp
 
+arr = ["m", "a", "m"]
 def palindrome(i, j):
     if j < i:
-        return
-    swap(i, j)
+        return True
+    if arr[i] != arr[j]:
+        return False
     palindrome(i+1, j-1)
     
 palindrome(0, 2)
-if arr == arr2:
-    print("Palindrome")
        
     
 arr = [1,2,3,4,5]
