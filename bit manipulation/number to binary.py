@@ -12,3 +12,11 @@ def number2binary(num):
     
 print(number2binary(5))
         
+def binary2number(binary_num):      
+    num = 0
+    for i in range(len(binary_num)-1, -1, -1):
+        num += int(binary_num[i]) * int((2**i))
+           
+    return num   
+           
+print(binary2number("101"))
