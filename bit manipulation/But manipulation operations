@@ -1,0 +1,84 @@
+#  Swap 2 no.s
+
+def swap(a, b):
+    a = a ^ b
+    b = a ^ b
+    a = a ^ b
+    a, b = b, a
+    a, b = b, a
+    return a, b
+
+a = 5
+b = 6
+print(swap(a, b))
+
+# i-th bit set or not
+
+def number2binary(num):
+    res = ""
+    while num > 0:          # 1 or 0 output
+        if num % 2 == 1:
+            res += '1'
+        else:
+            res += '0'
+            
+        num = num // 2
+
+    return res[::-1]
+
+print(number2binary(13))
+
+def check_set_bit(N, i):
+    '''
+    N = do and operation with left shift of 1
+    1 1 0 1
+      1 0 0   (1) << 2
+    '''
+    binary = number2binary(N)
+    if binary and (1 << i) != 0:
+        return "Set"
+    else:
+        return "Not Set"
+
+print(check_set_bit(13, 1))
+
+def setting_ith_bit(N, i):
+    '''
+    13 = 1101
+     1 = 0010 => OR operator
+    '''
+    setting_ith_bit_value =  N | (1 << i) 
+    print("Given: ", number2binary(N))
+    return number2binary(setting_ith_bit_value)
+
+print(setting_ith_bit(13, 1))
+
+def clearing_ith_bit(N, i):
+    '''
+    13 =   1101   (OR)
+     1 = ~(0100) => 1011 => 
+    '''
+    clearing_ith_bit_value = N & ~(1 << i)
+    print("Given: ", number2binary(N))
+    return number2binary(clearing_ith_bit_value)
+
+print(clearing_ith_bit(13, 2))
+
+def toggling_ith_bit(N, i):
+    '''
+    13 = 1101
+    XOR with 1
+    left shift by i
+    1101
+      1
+    1111
+
+    1101
+     1 
+    1011  
+    '''
+    toggling_ith_bit_value= N ^ (1 << i)
+    print("Given: ", number2binary(N))
+    return number2binary(toggling_ith_bit_value)
+
+print(toggling_ith_bit(13, 2))
