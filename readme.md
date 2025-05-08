@@ -27,3 +27,5 @@
 8. Bit Manipulation
 
 9. Recursion 
+
+10. Binary Search
