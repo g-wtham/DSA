@@ -197,3 +197,48 @@ while True:
         print("Negative: ", negative)
         break
     
+# %%
+i = 2
+while i < 30:
+    print(i)
+    i+=2
+# %%
+a = int(input("Number:"))
+i = 1
+while i<a:
+    print(i)
+    i+=1
+# %%
+a = int(input("Number:"))
+j=0
+while True:
+    i = 2**j
+    if i>a:
+        break
+    print(i)
+    j += 1
+# %%
+a = int(input("Number:"))
+j=1
+while j<a:
+    print(j) 
+    j *= 2   
+# %%
+a = int(input("Number:"))
+b = int(input("Base: "))
+j=1
+v=1
+while v<=a:
+    print(v)
+    v = b**j
+    j+=1
+# %%
+limit = int(input("Limit: "))
+sum_value = 0
+while sum_value <= limit:
+    sum_value += 1
+    print("sum:",sum_value)
+print(sum_value)
+
+
+# %%
