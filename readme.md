@@ -23,3 +23,9 @@
 6. Queue & Stack Implementations
 
 7. LinkedList 
+
+8. Bit Manipulation
+
+9. Recursion 
+
+10. Binary Search
