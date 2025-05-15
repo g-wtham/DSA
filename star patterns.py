@@ -141,5 +141,3 @@ def increasing_number_triangle():
             print(num , end=" ")
             num += 1
         print()
-    
-increasing_number_triangle()
