@@ -242,3 +242,53 @@ print(sum_value)
 
 
 # %%
+limit = int(input("Limit: "))
+
+output = 1
+calculation = ""
+while output <= limit:
+    if calculation:
+        calculation += "+"
+    calculation += f"{output}"
+    output += 1
+    
+print(f"The consecutive sum: {calculation}= {output}")
+    
+# %%
+u = int(input())
+b = int(input())
+power = 0
+output = 0
+while output <= u:
+    output = b**power
+    if output <= u:
+        print(output)
+    power += 1
+# %%
+n = 5
+stars = "*"
+while n > 0:
+    print(" " * n + stars)
+    stars += '**'
+    n -= 1
+# %%
+a = input()
+b = int(input())
+print(a*b, end="")
+# %%
+w = int(input())
+h = int(input())
+
+for i in range(h):
+    for j in range(w):
+        print("#", end="")
+    print() 
+# %%
+l = input()
+input_length = len(l)
+if input_length <= 20:
+    print((20-input_length) * "*" + l)
+else:
+    print(l)
+
+# %%
