@@ -292,3 +292,49 @@ else:
     print(l)
 
 # %%
+word = input()
+word_len = len(word)
+print("*" * 30)
+spaces = (28 - word_len)//2
+if word_len %2 == 0:
+    print("*" + " " * spaces + word + " " * spaces + "*")
+else:
+    print("*" + " " * spaces + word + " " * (spaces+1) + "*")
+
+print("*" * 30)
+
+# %%
+word = input()
+so_far = ""
+for i in range(len(word)-1, -1, -1):
+    so_far = word[i] + so_far
+    print(so_far)
+# %%
+word = input()
+if 'a' in word:
+    print("a found")
+else:
+    print("a not found")
+#%%
+word = input()
+char = input()
+first_char_index = word.find(char)
+if first_char_index + 3 <= len(word) and char in word:
+    print(word[first_char_index:first_char_index+3])
+else:
+    print("Nothing!")
+#%%
+word = input()
+char = input()
+j = 0
+while j<len(word):
+    i = word.find(char)
+    if i + 3 <= len(word):
+        print(word[i:i+3])
+    j+=1
+    word = word[j:]
+    
+#%%
+#%%
+#%%
+#%%
