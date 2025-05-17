@@ -324,6 +324,8 @@ if first_char_index + 3 <= len(word) and char in word:
 else:
     print("Nothing!")
 #%%
+
+# SOLVED IN JUST 2-3 TRY WITHOUT GOOGLING
 word = input()
 char = input()
 j = 0
@@ -335,6 +337,17 @@ while j<len(word):
     word = word[j:]
     
 #%%
+string = input()
+substring = input()
+if substring in string:
+    i = string.find(substring)
+    old_index = i
+    string = string[i+1:]
+    if substring in string:
+        i = string.find(substring)
+        i = i+1   # Since 2nd slicing starts from 0 and not 1, need to compensate for it.
+        print("The second occurrence of the substring is at index", old_index + i)
+    
 #%%
 #%%
 #%%
