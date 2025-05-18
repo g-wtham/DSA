@@ -349,5 +349,23 @@ if substring in string:
         print("The second occurrence of the substring is at index", old_index + i)
     
 #%%
+value = int(input())
+i = 1
+while i <= value:
+    j = 1
+    while j<=value:
+        print(i ,'x', j, '=', i*j)
+        j+=1 
+    i+=1
 #%%
+string = input()
+for char in string:
+    first_char = False
+    if char != ' ':
+        print(char)
+        first_char = True
+    else:
+        
+        
+        
 #%%
