@@ -359,13 +359,48 @@ while i <= value:
     i+=1
 #%%
 string = input()
+first_char = True
 for char in string:
-    first_char = False
-    if char != ' ':
+    if first_char:
         print(char)
+        first_char = False
+    if char == ' ':
         first_char = True
-    else:
         
         
         
 #%%
+string = input()
+first_char = False
+for char in string:
+    if not first_char:
+        print(char)
+        first_char = True
+    if char == ' ':
+        first_char = False
+# %%
+number = int(input())
+i = number-1
+while i > 0:
+    number = number * i
+    i -= 1
+print(number)
+
+# %%
+'''
+1st odd = save dont print
+2nd even = print
+print 1st odd
+'''
+
+number = int(input("Please type in a number: "))
+for i in range(1, number+1):
+    if number % 2 != 0:
+        odd = number
+    else:
+        even = number
+
+
+
+
+# %%
