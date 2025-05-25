@@ -265,7 +265,7 @@ while output <= u:
         print(output)
     power += 1
 # %%
-n = 5
+n = 3
 stars = "*"
 while n > 0:
     print(" " * n + stars)
@@ -394,13 +394,165 @@ print 1st odd
 '''
 
 number = int(input("Please type in a number: "))
+i = 1
+while i <= number:
+    if i + 1 <= number:
+        print(i+1)
+    print(i)
+    i += 2
+
+# %%
+number = int(input("Please type in a number: "))
+'''
+4 3 2 1
+'''
+
+i = 1
+j = number
+while i <= j:
+    print(i)
+    if i != j:
+        print(j)
+    i += 1
+    j -= 1
+
+# %%
+number = int(input("Please type in a number: "))
+total = 0
 for i in range(1, number+1):
-    if number % 2 != 0:
-        odd = number
+    if i % 2 == 0:
+        total -= i
     else:
-        even = number
+        total += i
+   
+print(total)     
+# %%
+number = int(input("Please type in a number: "))
+j = 0
+for i in range(1, number+1):
+    if i % 3 == 0:
+        for num in range(i, j, -1):
+            print(num)
+        j = i
+        
+# j = 6; number = given
+for k in range(number, j, -1):
+    print(k)
+    
+    
+# %%
+n = int(input())
+start = 1
+for _ in range(n):
+    for _ in range(n):
+        print(start, end="")
+        start = 1 - start
+    print()
+
+# %%
+def squared(string, number):
+    for i in range(number):
+        final_string = ""
+        for j in range(number):
+            final_string += string[(i+j) % len(string)]
+        print(final_string)    
+      
+squared('ab', 3)  
+# %%
+def line(integer, string):
+    if string == "":
+        return '*' * integer
+    else:
+        return string[0] * integer
+        
+print(line(7, ""))
+
+def box_of_hashes(num):
+    for _ in range(num):
+        print(line(10, '#'))
+    
+box_of_hashes(5)
 
 
 
+def square(integer, string):
+    for _ in range(integer):
+        print(line(integer, string))
+            
+print(square(5, "*"))
+
+def triangle(number):
+    i = 1
+    while i <= number:
+        print(line(i, '#'))
+        i += 1
+        
+triangle(3) 
+
+
+def shape(width, char, height, filler):
+    i = 1
+    while i <= width:
+        print(line(i, char))
+        i += 1
+    j = 0
+    while j < height:
+        print(line(width, filler))
+        j += 1
+        
+shape(5, "X", 3, "*")
+print()
+shape(2, "o", 4, "+")
+print()
+shape(3, ".", 0, ",")
+# %%
+def spruce(num):
+    nam = 1
+    i = 1
+    n = num-1
+    while i <= num:
+        print(" " * n + '*' * nam)
+        n -= 1
+        i += 1
+        nam += 2
+    print(" " * (num-1) + '*')
+
+spruce(5)
+# %%
+def first_word(sentence):
+    first = ""
+    for i in range(len(sentence)):
+        if sentence[i] != " ":
+            first += sentence[i]
+        if sentence[i] == ' ':
+            break
+    print(first)
+    
+first_word("it was a dark and stormy python")
+
+# %%
+def second_word(sentence):
+    second = ""
+    count = 0
+    for i in range(len(sentence)):
+        if sentence[i] == " ":
+            count += 1
+        if count == 1:
+            second += sentence[i+1]
+    print(second)
+
+second_word("it was a dark and stormy python")
+# %%
+def third_word(sentence):
+    third = ""
+    count = -1
+    for i in range(len(sentence)):
+        if sentence[i] == " ":
+            count = i
+    third += sentence[count+1:len(sentence)]
+    
+    return third
+
+print(third_word("it was"))
 
 # %%
