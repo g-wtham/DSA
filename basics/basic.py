@@ -556,3 +556,37 @@ def third_word(sentence):
 print(third_word("it was"))
 
 # %%
+listI = []
+for i in range(3):
+    items = int(input(f"Item {i+1}: "))
+    listI.append(items)
+print(listI)
+# %%
+my_list = []
+value = 0
+while True:
+    print(f"The list is now {my_list}")
+    option = input("a(d)d, (r)emove or e(x)it: ")
+    if option == 'd':
+        if len(my_list) == 0:
+            value = 0
+        value += 1
+        my_list.append(value)
+    if option == 'r':
+        if len(my_list) == 0:
+            print("Empty List")
+            continue
+        my_list.pop(-1)
+    if option == 'x':
+        print("Bye!")
+        break
+# %%
+my_list = []
+while True:
+    value = input("Word: ")
+    if value in my_list:
+        print(f"You typed in {len(my_list)} different words")
+        print(*my_list)   # unpacks list
+        break
+    if value not in my_list:
+        my_list.append(value)
