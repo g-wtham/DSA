@@ -31,3 +31,7 @@
 10. Binary Search
 
 11. OOPS
+
+12. Sorting Algorithm
+
+13. Two Pointers & Sliding Window
