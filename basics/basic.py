@@ -590,3 +590,18 @@ while True:
         break
     if value not in my_list:
         my_list.append(value)
+        
+#%%
+
+value = input("Word: ")
+for char in value:
+    print(char)
+    print('*')
+
+#%%
+value = int(input("Word: "))
+for i in range(-value, value+1):
+    if i == 0:
+        continue
+    print(i)
+# %%
