@@ -605,3 +605,114 @@ for i in range(-value, value+1):
         continue
     print(i)
 # %%
+my_list = [3, 2, 2, 1, 3, 3, 1]
+def distinct_numbers(my_list):
+    unique = []
+    for num in my_list:
+        if num not in unique:
+            unique.append(num)
+    
+    for i in range(len(unique)):
+        for j in range(i+1, len(unique)):
+            if unique[j] < unique[i]:
+                unique[j], unique[i] = unique[i], unique[j]
+        
+    return unique
+
+distinct_numbers(my_list)
+# %%
+def length_of_longest(my_list):
+    initial = my_list[0]
+    for item in my_list:
+        if len(item) > len(initial):
+            initial = item
+    return len(initial)
+
+my_list = ["first", "second", "fourth", "eleventh"]
+
+length_of_longest(my_list)
+# %%
+def all_the_longest(my_list):
+    length = 0
+    initial = my_list[0]
+    
+    for item in my_list:
+        if len(item) > len(initial):
+            initial = item
+            length = len(item)
+    
+    long = []
+    for item in my_list:
+        if len(item) == length:
+            long.append(item)
+ 
+    return long
+
+my_list = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+
+all_the_longest(my_list)
+
+# %%
+my_list = [1.234, 0.3333, 0.11111, 3.446]
+def formatted(my_list):
+    list1 = []
+    for item in my_list:
+        word = f"{item:.2f}"
+        list1.append(str(word)) 
+        
+    return list1
+
+formatted(my_list)
+
+    
+# %%
+def most_common_character(string):
+    char_dict = {}
+    for ch in string:
+        if ch in char_dict:
+            char_dict[ch] += 1
+        else:
+            char_dict[ch] = 1
+    
+    max_count = 0
+    max_ele = ""
+    for char in string:
+        if char_dict[char] > max_count:
+            max_ele = char
+            max_count = char_dict[char]
+    
+    return max_ele, max_count
+
+most_common_character("exemplaryelementary")
+# %%
+my_string = "this is an example"
+vowels = "aeiou"
+string = ""
+for ch in my_string:
+    if ch not in vowels:
+        string += ch
+        
+print(string)
+# %%
+my_list = ["ABC", "def", "UPPER", "ANOTHERUPPER", "lower", "another lower", "Capitalized"]
+pruned_list = []
+for item in my_list:
+    if not item.isupper():
+        pruned_list.append(item)
+print(pruned_list)
+# %%
+string = "abcde"
+duplicate_detect = True
+for i in range(len(string)):
+    for j in range(i+1, len(string)):
+        if string[i] == string[j]:
+            duplicate_detect = False
+            break
+    if not duplicate_detect:
+        break
+
+if duplicate_detect:
+    print("No duplicate")
+else:
+    print("Dup found!")
+# %%
