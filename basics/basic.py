@@ -701,18 +701,69 @@ for item in my_list:
         pruned_list.append(item)
 print(pruned_list)
 # %%
-string = "abcde"
+string = "eabccdbe"
 duplicate_detect = True
+indices = []
 for i in range(len(string)):
     for j in range(i+1, len(string)):
         if string[i] == string[j]:
             duplicate_detect = False
-            break
-    if not duplicate_detect:
-        break
+            indices.append(j)
 
 if duplicate_detect:
     print("No duplicate")
 else:
     print("Dup found!")
+    for i in indices:
+        print(f"{string[i]} = {i}", end=" ")
+# %%
+my_list = [1,2,3,4,5,6,7,8]
+print(my_list[len(my_list)-2:0:-1])
+# %%
+first_string = "abbcdddbe"
+max = 0
+list1 = []
+for char in first_string:
+    current_count = first_string.count(char)
+    if current_count > max:
+        max = current_count
+        character = char
+        list1.append(max)
+
+print(character)
+print(list1)
+# %%
+my_list = ["ABC", "def", "UPPER", "ANOTHERUPPER", "lower", "another lower", "Capitalized"]
+list2 = []
+for item in my_list:
+    if not item.isupper():
+        list2.append(item)
+print(list2)
+
+# In-place modification 
+for i in range(len(my_list)-1, -1, -1):
+    if my_list[i].isupper():
+        my_list.pop(i)
+print(my_list)
+# %%
+def longest_series_of_neighbours(arr):
+    count = 1
+    max_count = 0
+    for i in range(1, len(arr)):
+        if abs(arr[i] - arr[i-1]) == 1:
+            count += 1
+            if count > max_count:
+                max_count = count
+                temp_start = (i+1)-max_count
+                arr1 = arr[temp_start: temp_start+max_count]
+        else:
+            count = 1
+            
+    return max_count, arr1
+
+my_list = [1, 2, 5, 4, 3, 4]
+print(longest_series_of_neighbours(my_list))
+
+my_list = [1, 2, 5, 7, 6, 5, 6, 3, 4, 1, 0]
+print(longest_series_of_neighbours(my_list))
 # %%
