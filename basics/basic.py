@@ -767,3 +767,47 @@ print(longest_series_of_neighbours(my_list))
 my_list = [1, 2, 5, 7, 6, 5, 6, 3, 4, 1, 0]
 print(longest_series_of_neighbours(my_list))
 # %%
+names = ["Marlyn", "David", "Ruth", "Paul"]
+for i in range(len(names)):
+    for j in range(1, len(names)-i):
+        if names[j-1] > names[j]:
+            names[j-1], names[j] = names[j], names[j-1]
+            
+print(names)
+# %%
+def distinct_numbers(arr):
+    list1 = []
+    for num in arr:
+        if num in list1:
+            return False
+        list1.append(num)
+    
+    return True
+    
+distinct_numbers([1, 2, 2])
+# %%
+longest = 0
+strings = ["hi", "hiya", "hello", "howdydoody", "hi there"]
+for str in strings:
+    if len(str) > longest:
+        longest = len(str)
+        string1 = str
+print(string1)
+# %%
+def sum_of_row_column(m, col_no: int):
+    col_sum = 0
+    for row in m:
+        col_sum += row[col_no]
+        
+    row_sum = 0
+    row = m[col_no]
+    
+    for ele in row:
+        row_sum += ele
+        
+    return col_sum, row_sum
+
+m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
+sum_of_row_column(m, 1)
+        
+# %%
