@@ -811,3 +811,43 @@ m = [[4, 2, 3, 2], [9, 1, 12, 11], [7, 8, 9, 5], [2, 9, 15, 1]]
 sum_of_row_column(m, 1)
         
 # %%
+
+# If just accessing all the elements just traversing the matrix with `for item in items` is enough. 
+# If we want to access or modify it, by means of using a `for loop` with range() or a while loop so that the INDEX can be noted and used for modifying the elements.
+
+# %%
+
+m = [[1,2,3], [4,6], [7,8,9]]
+
+for i in range(len(m)): # using the number of rows in the matrix
+    for j in range(len(m[i])): # using the number of items on each row 
+        m[i][j] += 1
+
+print(m)
+
+'''
+range = 3 (0 1 2)
+1st iteration :
+i = 0
+No iteration at all
+
+2nd :
+i = 1 
+j = 0 => [0] (as 1 is exclusive)
+[1, 0]
+
+3rd :
+i = 2
+j = 0, 1
+[2,0] [2,1]
+'''
+# %%
+m = [[1, 2, 1], [0, 3, 4], [1, 0, 0]]
+argument = 1
+count = 0
+for item in m:
+    for ele in item:
+        if ele == argument:
+            count += 1
+print(count)
+# %%
