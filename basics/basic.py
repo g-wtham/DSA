@@ -851,3 +851,11 @@ for item in m:
             count += 1
 print(count)
 # %%
+a = 10
+print(id(a))
+a += 12
+print(id(a))
+a = 10
+print(id(a))
+
+# %%
