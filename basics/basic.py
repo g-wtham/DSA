@@ -859,3 +859,58 @@ a = 10
 print(id(a))
 
 # %%
+def double_items(numbers: list):
+    new_list = []
+    for item in numbers:
+        new_list.append(item*2)
+     
+    return new_list
+    
+numbers = [2, 4, 5, 3, 11, -4]
+numbers_doubled = double_items(numbers)
+print("original:", numbers)
+print("doubled:", numbers_doubled)
+    
+# %%
+def remove_smallest(numbers):
+    n = len(numbers)
+    for i in range(n):
+        for j in range(i+1, n):
+            if numbers[j] < numbers[i]:
+                numbers[i], numbers[j] = numbers[j], numbers[i]
+            
+    numbers[:] = numbers[1:n]
+    
+numbers = [2, 4, 6, 1, 3, 5]
+remove_smallest(numbers)
+print(numbers)
+
+# %%
+def play_turn(gameboard, x, y, piece):
+    if gameboard[y][x] == "":
+        gameboard[y][x] = piece
+        return True
+    else:
+        return False
+    
+game_board = [["", "", ""], ["", "", ""], ["", "", ""]]
+print(play_turn(game_board, 2, 0, "X"))
+print(game_board)
+
+# %%
+
+# Transpose a matrix
+
+matrix = [[1,2,3],[4,5,6],[7,8,9]]
+for i in range(len(matrix)):
+    for j in range(len(matrix[i])):
+        print(matrix[i][j], end=" ")
+    print()
+        
+print()
+
+for i in range(len(matrix)):
+    for j in range(len(matrix[i])):
+        print(matrix[j][i], end=" ")
+    print()
+# %%
