@@ -914,3 +914,69 @@ for i in range(len(matrix)):
         print(matrix[j][i], end=" ")
     print()
 # %%
+def times_ten(start_index: int, end_index: int):
+    dict1 = {}
+    for i in range(start_index, end_index+1):
+        dict1[i] = 10 * i
+        i += 1
+    return dict1
+        
+times_ten(3, 6)
+
+# %%
+def factorials(n: int):
+    dict1 = {}
+    i = n
+    value = i-1
+    while i > 0:
+        value = value * i
+        dict1[i] = value
+        i += 1
+    return dict1
+
+k = factorials(5)
+print(k[1])
+print(k[3])
+print(k[5])
+# %%
+
+word_list = [
+  "banana", "milk", "beer", "cheese", "sourmilk", "juice", "sausage",
+  "tomato", "cucumber", "butter", "margarine", "cheese", "sausage",
+  "beer", "sourmilk", "sourmilk", "butter", "beer", "chocolate"
+]
+
+def categorize_by_initial(my_list):
+    dict1 = {}
+    for item in my_list:
+        initial = item[0]
+        
+        if initial not in dict1:
+            dict1[initial] = []
+            
+        dict1[initial].append(item)
+    
+    for key, values in dict1.items():
+        print("Words beginning with ", key)
+        values.sort()
+        for value in values:        # since values is a list and we need to print one by one
+            print(value)
+   
+categorize_by_initial(word_list)        
+        
+# %%
+def histogram(string: str):
+    dict1 = {}
+    
+    for ch in string:
+        if ch in dict1:
+            dict1[ch] += '*'
+        
+        else:
+            dict1[ch] = '*'
+        
+    for key, value in dict1.items():
+        print(key, value)
+    
+histogram("statistically") 
+# %%
