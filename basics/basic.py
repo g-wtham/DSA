@@ -980,6 +980,7 @@ def histogram(string: str):
     
 histogram("statistically") 
 # %%
+<<<<<<< HEAD
 dict1 = {}
 while True:
     option = int(input("command (1 search, 2 add, 3 quit): "))
@@ -1052,4 +1053,45 @@ add_movie(database, "Gone with the Python", "Victor Pything", 2017, 116)
 add_movie(database, "Pythons on a Plane", "Renny Pytholin", 2001, 94)
 print(database)
     
+=======
+
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, value):
+        self.stack.append(value)
+
+    def pop(self):
+        if self.stack:
+            return self.stack.pop()
+        else:
+            print("Empty stack")
+
+    def peek(self):
+        if self.stack:
+            return self.stack[-1]
+        else:
+            print("Empty Stack")
+
+    def isEmpty(self):
+        if not self.stack:
+            return "Empty stack"
+        else:
+            return "Not empty"
+        
+    def traversal(self):
+        print(self.stack)
+        
+stack = Stack()
+stack.push(10)
+stack.push(30)
+stack.push(20)
+stack.traversal()
+print(stack.pop())
+print(stack.peek())
+stack.traversal()
+print(stack.isEmpty())
+
+>>>>>>> 9becce1ef0a6da2a3e406ada14b4cb52db68ec19
 # %%
