@@ -980,3 +980,76 @@ def histogram(string: str):
     
 histogram("statistically") 
 # %%
+dict1 = {}
+while True:
+    option = int(input("command (1 search, 2 add, 3 quit): "))
+    if option == 3:
+        print("quitting...")
+        break
+    
+    if option == 1:
+        search_key = input("name: ")
+        if dict1[search_key]:
+            print(dict1[search_key])
+        else:
+            print("no number")
+        
+    if option == 2:
+        key = input("name: ")
+        value = input("number: ")
+        dict1[key] = value
+        print("ok")
+# %%
+dict1 = {}
+while True:
+    option = int(input("command (1 search, 2 add, 3 quit): "))
+    if option == 3:
+        print("quitting...")
+        break
+    
+    if option == 1:
+        search_key = input("name: ")
+        if search_key in dict1:
+            value_list = dict1[search_key]
+            for item in value_list:
+                print(item)
+        else:
+            print("no number")
+        
+    if option == 2:
+        key = input("name: ")
+        value = input("number: ")
+       
+        if not key in dict1:
+            dict1[key] = []
+        
+        dict1[key].append(value)
+# %%
+s = {1: "first", 2: "second", 3: "third", 4: "fourth"}
+
+def invert(s: dict):
+    copy_s = s.copy()
+    s.clear()
+    for key, value in copy_s.items():
+        s[value] = key
+        
+    return s
+
+print("Original: ", s)
+print("Reveresed: ", invert(s))
+    
+# %%
+def add_movie(database: list, name: str, director: str, year: int, runtime: int):
+    dict1 = {}
+    dict1["name"] = name
+    dict1["director"] = director
+    dict1["year"] = year
+    dict1["runtime"] = runtime
+    database.append(dict1)
+    
+database = []
+add_movie(database, "Gone with the Python", "Victor Pything", 2017, 116)
+add_movie(database, "Pythons on a Plane", "Renny Pytholin", 2001, 94)
+print(database)
+    
+# %%
