@@ -1142,4 +1142,72 @@ sum_value = (n * (n+1) * (2*n + 1)) // 6
 print(sum_value)
 
 # %%
+s = {1: "first", 2: "second", 3: "third", 4: "fourth"}
+del1 = s.pop(5, "Not Found")
+print(del1)
+
+s_copy = s.copy()
+s.clear()
+for key, value in s_copy.items():
+    s[value] = key  
+print(s)
+# %%
+tup1 = {}
+tup1[(1,2,3)] = "Gowtham"
+print(tup1[(1,2,3)])
+print(tup1)
+# %%
+
+p1 = ("Adam", 1977)
+p2 = ("Ellen", 1985)
+p3 = ("Mary", 1953)
+p4 = ("Ernest", 1997)
+people = [p1, p2, p3, p4]
+def oldest_person(people: list):
+    min = float('inf')
+    name = ""
+    for item in people:
+        if item[1] < min:
+            min = item[1]
+            name = item[0]
+    return name       
+oldest_person(people)    
+# %%
+p1 = ("Adam", 1977)
+p2 = ("Ellen", 1985)
+p3 = ("Mary", 1953)
+p4 = ("Ernest", 1997)
+people = [p1, p2, p3, p4]
+
+def older_person(people: list, year: int):
+    names = []
+    for item in people:
+        if item[1] < year:
+            names.append(item[0])
+    return names        
+older_person(people, 1979)    
+# %%
+students = {}
+def add_student(students: dict, name: str):
+    students[name] = []
+    
+def print_student(students: dict, name: str):    
+    if name not in students:
+        print(f"{name}: no such person in the database")
+    else:
+        print(f"{name}: ")
+        courses = students[name]
+        if not courses:
+            print("  no completed courses")       
+        
+add_student(students, "Peter")
+add_student(students, "Eliza")
+print_student(students, "Peter")
+print_student(students, "Eliza")
+print_student(students, "Jack")
+
+def add_course(students: dict, name: str, courses: tuple):
+    if name in students:
+        students[name].append(courses)
+        
 # %%
