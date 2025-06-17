@@ -1093,5 +1093,53 @@ print(stack.peek())
 stack.traversal()
 print(stack.isEmpty())
 
->>>>>>> 9becce1ef0a6da2a3e406ada14b4cb52db68ec19
+# %%
+# Problem: Given N strings, find the first longest string with odd length. 
+# If none exists, output "Better luck next time".
+
+string = input("String: ")
+max = ""
+flag = False
+for word in string.split():
+    if len(word) % 2 != 0:
+        if len(word) > len(max):
+            flag = True
+            max = word
+if flag:
+    print(max)
+else:
+    print("Better luck next time")
+  
+  
+
+# %%
+# Problem: Given an array of stock prices, one transaction allowed.
+# Buy and sell once to maximize profit.
+
+stocks = [1, 9, 2, 11, 1, 9, 2]
+min = float('inf')
+max_profit = 0
+for stock in stocks:
+    if stock < min:
+        min = stock
+    profit = stock - min
+    if profit > max_profit:
+        max_profit = profit
+
+print(max_profit)
+# %%
+
+# Method: 1
+n = int(input())
+sum_value = 0
+for i in range(1, n+1):
+    sum_value += i * i
+print(sum_value)
+
+# Method: 2
+n = int(input())
+sum_value = (n * (n+1) * (2*n + 1)) // 6
+print(sum_value)
+
+# %%
 # %%
