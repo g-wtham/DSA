@@ -1197,17 +1197,49 @@ def print_student(students: dict, name: str):
     else:
         print(f"{name}: ")
         courses = students[name]
+        print(f" {len(courses)} completed courses:")
+        total_grades = 0
+        for course, grade in courses:
+            print(f"  {course} {grade}")
+            total_grades += grade
+        print(f"average grade {total_grades / len(courses)}")
         if not courses:
             print("  no completed courses")       
         
 add_student(students, "Peter")
-add_student(students, "Eliza")
-print_student(students, "Peter")
-print_student(students, "Eliza")
-print_student(students, "Jack")
+
 
 def add_course(students: dict, name: str, courses: tuple):
     if name in students:
-        students[name].append(courses)
         
+        course, grade = courses
+        if grade == 0:
+            return
+        
+        
+        student_courses = students[name]
+        
+        found = False
+        
+        for i in range(len(student_courses)):
+            existing_course, existing_grade = student_courses[i]
+            
+            if course == existing_course:
+                found = True
+                if grade > existing_grade:
+                    student_courses[i] = (course, grade)   # as cahnging the copy of the tuple variable above wont change it.   
+                grade = existing_grade
+                break
+            
+        if not found:
+            students[name].append((course, grade))
+            
+                
+students = {}
+add_student(students, "Peter")
+add_course(students, "Peter", ("Introduction to Programming", 3))
+add_course(students, "Peter", ("Advanced Course in Programming", 2))
+add_course(students, "Peter", ("Data Structures and Algorithms", 0))
+add_course(students, "Peter", ("Introduction to Programming", 2))
+print_student(students, "Peter")
 # %%
