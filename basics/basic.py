@@ -1243,3 +1243,40 @@ add_course(students, "Peter", ("Data Structures and Algorithms", 0))
 add_course(students, "Peter", ("Introduction to Programming", 2))
 print_student(students, "Peter")
 # %%
+arr = [1,2,3,2,4,5,1]
+dict1 = {}
+for item in arr:
+    if item in dict1:
+        dict1[item] += 1
+    else:
+        dict1[item] = 1
+        
+for key, value in dict1.items():
+    if value == 1:
+        print(key)
+# %%
+arr = [1,2,3,2,4,5,1]
+unique = []
+for i in range(len(arr)):
+    count = 0
+    for j in range(len(arr)):
+        if arr[i] == arr[j]:
+            count += 1
+    if count == 1 and arr[i] not in unique:                                                                          
+        unique.append(arr[i])
+
+print(unique)
+# %%
+arr = [1,2,3,2,4,5,1]
+target = 6
+seen = {}
+for i in range(len(arr)):
+    diff = target - arr[i]
+    
+    if diff in seen:
+        print([seen[diff], i])
+        
+    seen[arr[i]] = i
+    
+print(seen)
+# %%
