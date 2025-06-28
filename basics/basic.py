@@ -1280,3 +1280,113 @@ for i in range(len(arr)):
     
 print(seen)
 # %%
+# Armstrong Number
+
+num = 153
+
+sum = 0
+
+num_str = str(num)
+power = len(num_str)
+for num_ind in num_str:
+    sum += int(num_ind) ** power
+    
+if sum == num:
+    print("Armstrong Num")
+else:
+    print("Not armstrong number")
+    
+# If the sum of the individual number each power to the length of given number is equal to the given num, its armstrong number
+# %%
+# write a program to print the duplicate characters in a string? ( language is optional )
+
+str1 = 'aabbchgw'
+
+i = 0
+str = ''.join(sorted(str1))
+while i < len(str):
+    count = 1
+    while i + count < len(str) and str[i] == str[i+count]:
+        count += 1
+        
+    if count > 1:
+        print(str[i],",", count)
+        
+    i += count
+    
+# Sort → Scan → Count → Print → Skip        
+# %%
+arr = [10, 5, 2, 7, 1, -10]
+maxsum = 0
+for i in range(len(arr)):
+    
+    sum = 0
+
+    for j in range(i, len(arr)):
+        sum += arr[j]
+        
+        if maxsum < sum:
+            maxsum = sum 
+        
+print(maxsum)
+
+# %%
+# For each char in a string, print the count of its occurrences.
+
+str = "aaabb"
+str = ''.join(sorted(str))
+i = 0
+while i < len(str):
+    count = 1
+
+    while i + count < len(str) and str[i] == str[i+count]:
+        count += 1
+        
+    print(str[i], count)
+    
+    i += count
+
+# %%
+# Longest non-repeating-character substring.
+
+str = "aaabbcdef"
+i = 0
+char_set = set()
+left = 0
+maxlen = 0
+for i in range(len(str)):
+    while str[i] in char_set:
+        char_set.remove(str[left])
+        left += 1
+        
+    char_set.add(str[i])
+    
+    current_len = i-left+1
+    
+    if current_len > maxlen:
+        maxlen = current_len
+        
+print(maxlen)
+# %%
+str = "aaabbcdef"
+i = 0
+char_set = []
+left = 0
+maxlen = 0
+while i < len(str):
+    if str[i] in char_set:
+        char_set.pop(0)
+        left += 1
+        
+    else:
+        char_set.append(str[i])
+        current_len = i-left+1
+        
+        if current_len > maxlen:
+            maxlen = current_len
+    
+    i+= 1
+
+    
+print(maxlen)
+# %%
