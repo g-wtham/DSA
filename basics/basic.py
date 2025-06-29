@@ -1390,3 +1390,40 @@ while i < len(str):
     
 print(maxlen)
 # %%
+# Max subarray sum in an integer array.
+
+arr = [2, 3, -8, 7, -1, 2, 3]
+
+
+def maxSubarraySum(arr):
+    max_sum = 0
+    for i in range(len(arr)):
+        current_sum = 0
+        for j in range(i, len(arr)):
+            current_sum += arr[j]
+            
+            if current_sum > max_sum:
+                max_sum = current_sum
+
+    return max_sum
+            
+print(maxSubarraySum(arr))
+            
+# To check every subarray, u need to start from ith pos and go till end of the array.
+# %%
+array = [2, 3, -8, 7, -1, 2, 3]
+
+first_ele = array[0]
+max_sum = array[0]
+for i in range(1, len(array)):
+    if first_ele + array[i] > array[i]:
+        first_ele += array[i]
+    else:    
+        first_ele = array[i]
+        
+    if first_ele > max_sum:
+        max_sum = first_ele
+        
+print(max_sum)
+    
+# %%
