@@ -40,3 +40,114 @@ Example: Pizza Shop Analogy
 
 🍕 pizza = Pizza() = an object. It’s the pizza you made.
 '''
+# %%
+class Computer:
+    def __init__(self, name, age) -> None:
+        self.name = name
+        self.age = age
+        
+    
+c1 = Computer("Gowtham", 12)
+c2 = Computer("Ravi", 14)
+
+print(c1)  # Prints the object memory address and not properties unless specified using . operator
+ 
+print(c1.name)
+print(c2.name)
+
+print(c1.age)
+print(c2.age)
+
+class Computer2:
+    def __init__(self) -> None:
+        self.name = "Without Parameters"
+        
+withoutParameter = Computer2()
+
+print(withoutParameter)
+print(withoutParameter.name)
+
+
+# %%
+
+## Obj compare
+
+class Computer:
+    def __init__(self, name, age) -> None:
+        self.name = name
+        self.age = age
+        
+    def compare(self, other_obj):
+        if self.age == other_obj.age:
+            return True
+        else:
+            return False
+        
+        
+computer1 = Computer("Gowtham", 12)
+computer2 = Computer("Ravi", 13)
+
+if computer1.compare(computer2):
+    print("They are same")
+else:
+    print("They are not same")
+# %%
+class Computer:
+    class_variable_wheels = 5
+    
+    def __init__(self) -> None:
+        self.model = "BMW"
+        self.petrol = 5
+        
+c1 = Computer()
+c2 = Computer()
+
+print("c1 obj: " ,c1.model, c1.petrol, "c2 obj: ", c2.model, c2.petrol)
+print("Class Variable: ")
+print(c1.class_variable_wheels)
+print(Computer.class_variable_wheels)
+
+
+# %%
+'''
+Variable Types - 
+    i. Static(Class) variable;
+   ii. Instance variable 
+   
+Method Types - 
+    i. Instance methods
+        - Accessors
+        - Mutators
+    ii. Class methods
+    iii. Static methods
+'''
+
+class School:
+    class_school_name = "Trust"
+    
+    def __init__(self) -> None:
+        self.model = "BMW"
+        self.petrol = 5
+
+    def accessors(self):
+        return self.model
+    
+    def mutators(self, value):
+        self.model = value
+        
+    # To create a class method
+    
+    @classmethod
+    def school_name(cls):
+        return cls.class_school_name
+    
+c1 = School()
+c2 = School()
+c3 = School()
+
+print(c1.accessors())
+c2.mutators("Audi")
+
+print("Model Name: ", c2.model)
+print(School.school_name())
+# %%
