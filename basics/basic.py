@@ -1443,3 +1443,44 @@ for i in range(1, n+1):
     print()
 
 # %%
+
+a = [7, 4, 3, 2, 8, 2, 4, 3, 7, 1]  
+item = set()
+for i in range(len(a)):
+    count = 0
+    for j in range(len(a)):
+        if a[j] == a[i]:
+            count += 1
+                
+        if count > 1 and a[i] not in item:
+            item.add(a[i])
+            print(a[i])
+        
+        
+        
+# %%
+a = [7, 4, 3, 2, 8, 2, 4, 3, 7, 1, 2]  
+seen = set()
+printed = set()
+
+for item in a:
+    if item in seen and item not in printed:
+        print(item)
+        printed.add(item)   
+    else:
+        seen.add(item)
+# %%
+a = [7, 4, 3, 2, 8, 2, 4, 3, 7, 1, 2]  
+first_time = set()
+dups = set()
+
+for item in a:
+    if item not in first_time:
+        first_time.add(item)
+    else:
+        dups.add(item)
+        
+for item in a:
+    if item not in dups:
+        print(item)
+# %%

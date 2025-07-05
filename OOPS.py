@@ -141,6 +141,13 @@ class School:
     def school_name(cls):
         return cls.class_school_name
     
+    # Static Method - not related to class or instance variable
+    
+    @staticmethod
+    def info():
+        print("This is static method - not class method or instance method")
+        
+    
 c1 = School()
 c2 = School()
 c3 = School()
@@ -150,4 +157,27 @@ c2.mutators("Audi")
 
 print("Model Name: ", c2.model)
 print(School.school_name())
+
+School.info()
+# %%
+class Student:
+    def __init__(self, name, class_name) -> None:
+        self.name = name
+        self.class_name = class_name
+        self.laptop = self.Laptop()
+    
+    class Laptop:
+        def __init__(self) -> None:
+            self.laptop = "HP"
+            
+Student.Laptop().laptop  # Direct subclass calling
+
+l1 = Student("gowtham", 12)  # Instance of a class
+laptop1 = l1.laptop # Laptop 1
+
+print("Subclass object property: ",laptop1.laptop)
+
+l1 = Student('a', 12)
+laptop_class = l1.Laptop()
+print(laptop_class.laptop)
 # %%
