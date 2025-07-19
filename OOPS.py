@@ -181,3 +181,15 @@ l1 = Student('a', 12)
 laptop_class = l1.Laptop()
 print(laptop_class.laptop)
 # %%
+class Test:
+    class_variable = 0                  # static variable (belongs to the class)
+
+    
+    def __init__(self):                 # instance method 
+        
+        instance_variable = 0           # local variable (belongs to a method)
+        
+        self.name = instance_variable   # instance variable
+        
+# Instance variable can be created at runtime and doesnt need explicitly mentioning it, rather than like in JAVA
+    
