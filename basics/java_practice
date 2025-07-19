@@ -1,0 +1,33 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+// Static keyword usage
+
+class Main {
+    public static void main(String[] args) {
+        Human human_obj = new Human("Gowtham", 12, true );
+        System.out.println(human_obj.population);
+        Human human_obj2 = new Human("Vvk", 12, true );
+        System.out.println(human_obj2.population);
+        
+    }
+}
+
+class Human{
+    int age;
+    String name;
+    int salary;
+    boolean married;
+    static long population;
+    
+    public Human(String name, int age, boolean married){
+        this.name = name;
+        this.age = age;
+        this.married = married;
+        this.population += 1;
+    }
+}
+
+-----------
+
+  
