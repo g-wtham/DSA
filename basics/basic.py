@@ -1484,3 +1484,19 @@ for item in a:
     if item not in dups:
         print(item)
 # %%
+def sample_decorator(func):
+    def wrapper():
+        print("Starting")
+        func()
+        print("Ending")
+    
+    return wrapper
+
+@sample_decorator
+def greet():
+    print("Greet function gets called.")
+    
+greet()
+# %%
+
+# %%
