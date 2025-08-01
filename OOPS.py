@@ -192,4 +192,67 @@ class Test:
         self.name = instance_variable   # instance variable
         
 # Instance variable can be created at runtime and doesnt need explicitly mentioning it, rather than like in JAVA
+# %%
+
+class Bank:
+    def __init__(self):
+        self.__balance = 0
+        
+    def deposit(self, amount):
+        self.__balance += amount
+        
+    def get_balance(self):
+        return self.__balance
     
+bank = Bank()
+bank.deposit(1000)
+bank.deposit(1000)
+print(bank.get_balance())      
+# %%
+
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+    
+class Car(Vehicle):
+    def start(self):
+        print("Car Started")
+        
+c = Car()
+c.start()
+
+
+# c.start() => Car.start(c)
+# where, c = self
+# %%
+class Animal:
+    def talk(self):
+        print("Animal speaks")
+        
+class Lion(Animal):
+    def speak(self):
+        print("Lion speaks")
+        
+lion = Lion()
+lion.speak()
+lion.talk()
+# %%
+class Animal:
+    def __init__(self):
+        print("Animal Constructor")
+        
+    def talk(self):
+        print("Animal speaks")
+        
+class Lion(Animal):
+    def speak(self):
+        print("Lion speaks")
+        
+lion = Lion()
+lion.talk()
+lion.speak()
+
+# %%
