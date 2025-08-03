@@ -256,3 +256,19 @@ lion.talk()
 lion.speak()
 
 # %%
+
+class Bird:
+    def sound(self):
+        print("Booff!")
+        
+class Animal:
+    def sound(self):
+        print("Wooff!")
+
+def making_sound(sound_class): 
+    sound_class.sound()
+    
+animal = Animal()
+making_sound(animal)
+
+# %%
