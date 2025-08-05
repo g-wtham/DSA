@@ -1564,5 +1564,23 @@ divisor = divisor/100
 
 print("Palindrome")
 
+# %%
+# Square of a number without using *, / and pow()
 
+def square(n):
+    result = 0
+    for _ in range(n):
+        result += n
+    return result
+
+print(square(5))
+# %%
+
+# Check if two numbers are equal without using arithmetic and comparison operators
+a, b = 5, 5
+
+if (a ^ b == 0):
+    print("Same")
+else:
+    print("Not Same")
 # %%
