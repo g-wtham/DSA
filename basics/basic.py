@@ -1525,3 +1525,44 @@ result = a - ((a - b) & signed_bit) # If a=10, b=5 : 5 & 0 = 0 -- 0101 & 0000 =>
                                     # If a=5, b=10 : -5 & 1 gives the same number : -5 => 5 - (-5) => 10 => b
 print(result)
 # %%
+
+# Calculate 7n/8 without using division and multiplication operators
+
+# 16/8 = 2 => 10000 >> 3 => 00010 = 2
+n = 8
+
+right_shift = n >> 3
+
+print(n - right_shift)
+# %%
+n = "123"
+int_values = 0
+for item in n:
+    value = ord(item) - 48
+    int_values += value
+    
+print(int_values)
+
+# %%
+# palindrome without using extra space
+
+n = 1234321
+
+divisor = 1
+while (n/divisor >= 10):
+    divisor *= 10
+    
+trailing_num = n % 10
+leading_num = n // divisor
+
+if (trailing_num != leading_num):
+    print("Not a palindrome")
+
+n = (n % divisor)//10
+
+divisor = divisor/100
+
+print("Palindrome")
+
+
+# %%
