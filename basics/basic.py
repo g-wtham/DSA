@@ -1499,4 +1499,29 @@ def greet():
 greet()
 # %%
 
+n = 11
+'''
+
+01010
+00001
+-----
+00000
+'''
+
+if (n & 1):  # False
+    print("Odd")
+else:
+    print('Even')
+
+# %%
+
+# Greater number between 2 without using ternary or conditional
+
+a = 15
+b = 10
+signed_bit = (a-b) >> 31  # For positive - 0; negative - 1; when right shift on signed integer, if its positive sign - 0 gets filled, if its negative sign - 1 gets filled.
+
+result = a - ((a - b) & signed_bit) # If a=10, b=5 : 5 & 0 = 0 -- 0101 & 0000 => 0000 => a - 0 => a => 10
+                                    # If a=5, b=10 : -5 & 1 gives the same number : -5 => 5 - (-5) => 10 => b
+print(result)
 # %%
