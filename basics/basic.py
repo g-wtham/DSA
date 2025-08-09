@@ -1584,3 +1584,62 @@ if (a ^ b == 0):
 else:
     print("Not Same")
 # %%
+def parantheses():
+    string = '(((())))'
+    stack = []
+    for element in string:
+        if element == '(':
+            stack.append('(')
+        else:
+            if not stack:
+                return "Empty Stack"
+            else:
+                stack.pop()
+
+    if stack:
+        return "Unbalanced"
+    else:
+        return "Balanced"
+
+print(parantheses())
+
+def without_stack():
+    string = ')('
+    stack_counter = 0
+    for ele in string:
+        if ele == '(':
+            stack_counter += 1
+        else:
+            stack_counter -= 1
+           
+        if stack_counter < 0:
+             return "Unbalanced"
+
+    if stack_counter == 0:
+        return "Balanced"
+    else:
+        return "Unbalanced"
+    
+
+print(without_stack())
+
+# %%
+
+expression = "5 1 2 + 4 * + 3 -"
+print(postfix_eval(expression))
+
+def string_to_int(value):
+    result = 0
+
+    for ele in value:
+        result = (result * 10) + (ord(ele) - ord('0'))
+
+    print(type(result))
+    return result
+print(string_to_int("48"))
+
+str = "REVERSE"
+string1 = list(str)
+
+for ele in string1:
+    
