@@ -76,4 +76,6 @@ def postfix_eval(string):
 
     return stack[0]
 
+expression = "5 1 2 + 4 * + 3 -"
+print(postfix_eval(expression))
     

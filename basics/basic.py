@@ -1625,9 +1625,6 @@ print(without_stack())
 
 # %%
 
-expression = "5 1 2 + 4 * + 3 -"
-print(postfix_eval(expression))
-
 def string_to_int(value):
     result = 0
 
@@ -1638,8 +1635,77 @@ def string_to_int(value):
     return result
 print(string_to_int("48"))
 
+# %%
+
 str = "REVERSE"
 string1 = list(str)
+n = len(string1)-1
 
-for ele in string1:
+for i in range(len(string1)//2):
+    string1[n], string1[i] = string1[i], string1[n]
+    n -= 1
+    
+print(''.join(string1))
+    
+# %%
+def square(num):
+    final = 0
+    for _ in range(num):
+        final += num
+        
+    return final
+
+square(10)
+# %%
+num1 = 5
+num2 = 5
+
+if num1 ^ num2 == 0:
+    print("Equal")
+else:
+    print("Not equal")
+# %%
+num2 = 52
+
+if num2 & 1 == 1:
+    print("Odd Number")
+else:
+    print("Even Number")
+# %%
+def max_element(a, b):
+    signed_bit = (a - b) >> 31
+    return a - (signed_bit & (a-b))
+
+arr = [1, 5, 3, 4]
+largest = arr[0]
+for ele in arr:
+    largest = max_element(largest, ele)
+    
+print(largest)
+
+# %%
+
+def factorial(n):
+    # 2, 6, 12, ...
+    
+    fact = 1
+    for i in range(2, n+1):
+        temp_sum = 0
+        for _ in range(i):
+            temp_sum += fact
+        
+        fact = temp_sum 
+    
+    return fact
+
+print(factorial(5))
+        
+# %%
+def print_numbers(n):
+    if n>1:
+        print_numbers(n-1)
+    print(n)    
+    
+print_numbers(5)
+# %%
     
