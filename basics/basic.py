@@ -1708,4 +1708,12 @@ def print_numbers(n):
     
 print_numbers(5)
 # %%
-    
+def multiply(a, b):
+    result = 0
+    for _ in range(b):
+        result += a
+        
+    return result
+
+print(multiply(15, 10))
+# %%
