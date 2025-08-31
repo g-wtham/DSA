@@ -6,9 +6,13 @@ Either maximum width (or) maximum height.
 Also, the usable height is the minimum of two heights, as only that much can be filled.
 => Min(height1, height2)
  
-How to calc width then? Height at right line - Height at left line => Width 
+How to calc width then? Right index - Left index - their element positions => Width 
 
 area = height * width
+
+Trade-off: We sacrifice width at each step in the hope of finding a greater height.
+
+
 
 '''
 
