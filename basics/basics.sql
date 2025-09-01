@@ -28,3 +28,9 @@ delete from marks where student_id = 4;
 ALTER TABLE marks rename column score to total_score;
 
 ALTER marks add column 'score';
+
+select tweet_id from Tweets where length(content) > 15;
+
+select name, population, area from World where area >= 3000000 or population >= 25000000;
+
+select distinct(author_id) as id from Views where author_id = viewer_id;
