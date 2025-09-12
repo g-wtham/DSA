@@ -68,3 +68,13 @@ SELECT `salary_range`, count(salary_decimal) FROM `vcet_data`.`vcet_24` GROUP BY
 --- Final student names with salary range query
 
 select row_number() over (order by salary desc) as s_no, student_name, salary from (select student_name, max(salary_in_lpa) as salary from vcet_24 group by student_name order by salary desc) as derived_salary;
+
+---- With student name, branch, company name and salary
+
+SELECT ROW_NUMBER() OVER (ORDER BY max_salary DESC) AS s_no,
+    t.student_name,
+    t.branch,
+    t.company_name,
+    max_salary AS salary FROM 
+    (SELECT student_name, branch, company_name, MAX(salary_in_lpa) AS max_salary FROM vcet_24 GROUP BY student_name, branch, company_name) AS t ORDER BY max_salary DESC;
+
