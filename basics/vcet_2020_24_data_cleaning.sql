@@ -78,3 +78,28 @@ SELECT ROW_NUMBER() OVER (ORDER BY max_salary DESC) AS s_no,
     max_salary AS salary FROM 
     (SELECT student_name, branch, company_name, MAX(salary_in_lpa) AS max_salary FROM vcet_24 GROUP BY student_name, branch, company_name) AS t ORDER BY max_salary DESC;
 
+
+alter table placements_2020_24 add column salary_range varchar(50);
+
+create table placements_2020_24 as (SELECT ROW_NUMBER() OVER (ORDER BY max_salary DESC) AS s_no,
+    t.student_name,
+    t.branch,
+    t.company_name,
+    max_salary AS salary FROM 
+    (SELECT student_name, branch, company_name, MAX(salary_in_lpa) AS max_salary FROM vcet_24 GROUP BY student_name, branch, company_name) AS t ORDER BY max_salary DESC);
+
+update placements_2020_24 set salary_range =  
+CASE
+	when salary > 700000 THEN '7_LPA_ABOVE'
+    when salary between 600000 and  700000 THEN '6_TO_7_LPA'
+    when salary between 500000  and 600000 THEN '5_TO_6_LPA'
+    when salary between 450000  and  500000 THEN '4.5_TO_5_LPA'
+	when salary between 400000  and  450000 THEN '4_TO_4.5_LPA'
+	when salary between 350000  and  400000 THEN '3.5_TO_4_LPA'
+	when salary between 300000  and  350000 THEN '3_TO_3.5_LPA'
+    else 'BELOW_3_LPA'
+END;
+
+-- count of students by salary range
+select salary_range, count(salary_range) as number_of_students from placements_2020_24 group by salary_range order by number_of_students desc;
+
