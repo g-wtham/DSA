@@ -30,5 +30,37 @@ create table sorted_salary as (select `vcet_24`.`student_name`, max(`salary_in_l
 
 create table details as (select row_number() over (order by salary_in_lpa desc) as s_no, student_name, branch, company_name, salary_in_lpa from vcet_24 order by salary_decimal desc);
 
-SET SQL_SAFE_UPDATES = 1;create table details2 as (Select ROW_number() over (order by sil desc) as s_no, student_name, sil FROM vcet_data.sorted_salary);
+SET SQL_SAFE_UPDATES = 1;
 
+create table details2 as (Select ROW_number() over (order by sil desc) as s_no, student_name, sil FROM vcet_data.sorted_salary);
+
+alter table vcet_24 add column salary_range varchar(50);
+
+select 
+CASE
+	when salary_in_lpa > 700000 THEN '7_LPA_ABOVE'
+    when salary_in_lpa between 600000 and  700000 THEN '6_TO_7_LPA'
+    when salary_in_lpa between 500000  and 600000 THEN '5_TO_6_LPA'
+    when salary_in_lpa between 450000  and  500000 THEN '4.5_TO_5_LPA'
+	when salary_in_lpa between 400000  and  450000 THEN '4_TO_4.5_LPA'
+	when salary_in_lpa between 350000  and  400000 THEN '3.5_TO_4_LPA'
+	when salary_in_lpa between 300000  and  350000 THEN '3_TO_3.5_LPA'
+    else 'BELOW_3_LPA'
+END as salary_range, count(*)  as student_count FROM vcet_24 GROUP BY salary_range order by student_count desc;
+
+SET SQL_SAFE_UPDATES = 0;
+
+update vcet_24 set salary_range =  
+CASE
+	when salary_in_lpa > 700000 THEN '7_LPA_ABOVE'
+    when salary_in_lpa between 600000 and  700000 THEN '6_TO_7_LPA'
+    when salary_in_lpa between 500000  and 600000 THEN '5_TO_6_LPA'
+    when salary_in_lpa between 450000  and  500000 THEN '4.5_TO_5_LPA'
+	when salary_in_lpa between 400000  and  450000 THEN '4_TO_4.5_LPA'
+	when salary_in_lpa between 350000  and  400000 THEN '3.5_TO_4_LPA'
+	when salary_in_lpa between 300000  and  350000 THEN '3_TO_3.5_LPA'
+    else 'BELOW_3_LPA'
+END;
+
+
+SELECT `salary_range`, count(salary_decimal) FROM `vcet_data`.`vcet_24` GROUP BY salary_range ;
