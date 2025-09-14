@@ -261,3 +261,246 @@ INSERT INTO Employees_2 (EmployeeID, FullName, ManagerID) VALUES
 (6, 'Chris Green', 4); 
 
 select employee.FullName, manager.FullName from Employees_2 employee LEFT JOIN Employees_2 manager ON employee.ManagerId = manager.EmployeeID;
+
+CREATE TABLE Sales (
+    TransactionID INT,
+    Store VARCHAR(50),
+    SalesAmount DECIMAL(10, 2)
+);
+
+INSERT INTO Sales (TransactionID, Store, SalesAmount)
+VALUES
+    (1, 'A', 100.00),
+    (2, 'A', 200.00),
+    (3, 'A', 150.00),
+    (4, 'B', 250.00),
+    (5, 'B', 300.00);
+
+select store, sum(SalesAmount) as sales_amt from Sales group by Store;
+
+-- using window functions
+
+select store, sum(salesamount) over (order by salesamount desc) as total_spend from sales;
+
+select store, salesamount, sum(salesamount) over (partition by store) as sum_spend from sales;
+
+select transactionid, store, salesamount, row_number() over (order by transactionid desc) from sales;
+
+select transactionid, store, salesamount, row_number() over (order by salesamount desc) from sales;
+
+select transactionid, store, salesamount, row_number() over (partition by store order by salesamount desc) from sales;
+
+CREATE TABLE employees3 (
+    employee_id serial PRIMARY KEY,
+    first_name  VARCHAR(50),
+    last_name   VARCHAR(50),
+    position    VARCHAR(50),
+    salary      DECIMAL(10,2)
+);
+
+CREATE TABLE contractors3 (
+    contractor_id serial PRIMARY KEY,
+    first_name    VARCHAR(50),
+    last_name     VARCHAR(50),
+    position      VARCHAR(50),
+    hourly_rate   DECIMAL(10,2)
+);
+
+INSERT INTO employees3 (first_name, last_name, position, salary)
+VALUES
+('Alice', 'Smith', 'Developer', 70000.00),
+('Bob', 'Johnson', 'Developer', 75000.00),
+('Charlie', 'Lee', 'Manager', 90000.00);
+
+INSERT INTO contractors3 (first_name, last_name, position, hourly_rate)
+VALUES
+('Dave', 'Williams', 'Developer', 40.00),
+('Eve', 'Brown', 'Tester', 35.00),
+('Bob', 'Johnson', 'Developer', 45.00);
+
+select first_name, last_name from employees3 union select first_name, last_name from contractors3;
+
+-- with duplicates, so faster than union which takes time for deduplication
+select first_name, last_name from employees3 union all select first_name, last_name from contractors3;
+
+create index idx_phone on customers (phone_number);
+
+explain analyze select phone_number from customers where phone_number = '9876543210';
+
+explain select phone_number from customers;
+
+explain analyze select phone_number from customers;
+
+CREATE TABLE orders6 (
+    order_id serial,
+    order_date date NOT NULL, 
+    customer_name VARCHAR(50),
+    amount NUMERIC(10,2)
+)
+partition by range (year(order_date))(
+	partition p_before_2020 values less than (2020),
+	partition p_2020 values less than (2021),
+	partition p_2021 values less than (2022),
+	partition p_2022 values less than (2023),
+	partition p_future values less than MAXVALUE
+);
+
+CREATE TABLE regex_samples (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sample_text VARCHAR(100)
+);
+
+
+INSERT INTO regex_samples (sample_text) VALUES 
+('apple'),         -- id=1
+('Banana'),        -- id=2 (note the capital B)
+('cherry'),        -- id=3
+('date'),          -- id=4
+('elderberry'),    -- id=5
+('fig'),           -- id=6
+('grape'),         -- id=7
+('honeydew'),      -- id=8
+('running'),       -- id=9 (ends with "ing")
+('123abc');        -- id=10 (starts with digits)
+
+select * from regex_samples where sample_text regexp '^[0-9]';
+
+select * from regex_samples;
+
+-- ^ - must start this way, starts with A or any capital letter and ends with small letter, + - checks for every single character, $ - must end this way
+select * from regex_samples where sample_text regexp '^[A-Za-z]+$';
+
+-- searches by occurence of just one character and uses + to group up more
+select * from regex_samples where sample_text regexp '^[apple|banana]+$';
+
+-- groups the query and searches -> ()
+select * from regex_samples where sample_text regexp '^(apple|banana)$';
+
+select * from regex_samples where sample_text regexp '^[0-9]{3}[A-Za-z]+$';
+
+CREATE TABLE demo_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(50),
+    phone VARCHAR(25),
+    email VARCHAR(100),
+    date_col VARCHAR(10),
+    status VARCHAR(20),
+    sku VARCHAR(20),
+    username VARCHAR(30),
+    notes VARCHAR(100)
+);
+
+
+INSERT INTO demo_data (full_name, phone, email, date_col, status, sku, username, notes)
+VALUES
+-- 1
+('John Smith', 
+ '123-456-7890', 
+ 'john@example.com', 
+ '2025-02-07', 
+ 'pending', 
+ 'ABCD', 
+ 'johnsmith', 
+ 'Ships to CA'),
+
+-- 2
+('Alice Johnson', 
+ '(987) 654-3210', 
+ 'alice@@example.net', 
+ '2025-02-07', 
+ 'inactive', 
+ 'SKU-123', 
+ 'alice', 
+ 'NY location'),
+
+-- 3
+('Bob Williams', 
+ '+1-555-123-4567', 
+ 'bob@sample.org', 
+ '20250207', 
+ 'complete', 
+ '1SKU', 
+ 'bob123', 
+ 'Shipping to CA'),
+
+-- 4
+('Mary 1 White', 
+ '(123) 123-4567', 
+ 'mary123@example.com', 
+ '2025-13-31', 
+ 'PENDING', 
+ 'abc-999', 
+ 'mary_white', 
+ 'Something about CA or'),
+
+-- 5
+('Mark-Spencer', 
+ '1234567890', 
+ 'mark@example.com', 
+ '2024-11-02', 
+ 'active', 
+ 'SKU-9999', 
+ 'mark', 
+ 'Random note'),
+
+-- 6
+('Jane O''Connor',   -- Note the doubled apostrophe for SQL
+ '987-654-3210', 
+ 'jane.o.connor@example.org', 
+ '2024-12-31', 
+ 'inactive', 
+ 'ABCDE', 
+ 'janeO', 
+ 'Contains CA or NY'),
+
+-- 7
+('Invalid Mail', 
+ '000-000-0000', 
+ 'invalid@@example..com', 
+ '2023-01-15', 
+ 'inactive', 
+ 'XYZ000', 
+ 'invalid', 
+ 'Double @ and dots'),
+
+-- 8
+('NoSpacesHere', 
+ '+12-345-678-9012',
+ 'nospaces@example.co',
+ '2025-02-07',
+ 'pending',
+ 'SKU999',
+ 'NoSpaces',
+ 'Ends with .co domain');
+ 
+ select * from demo_data;
+ 
+ select * from demo_data where full_name regexp '^[A-Za-z ]+$'; 
+ 
+ CREATE TABLE Accounts (
+  AccountID INT PRIMARY KEY,
+  AccountHolder VARCHAR(100),
+  Balance DECIMAL(10,2)
+);
+
+-- Insert a new record into Accounts
+INSERT INTO Accounts (AccountID, AccountHolder, Balance)
+VALUES (1, 'Alice', 5000.00);
+
+begin;
+
+update Accounts set Balance = Balance - 1000 where AccountID = 1;
+select * from Accounts;
+
+rollback;
+commit;
+rollback; -- no use as we already commited the values
+
+start transaction; -- either begin / transaction
+update Accounts set AccountHolder = 'Mathew' where AccountID = 1;
+
+select * from Accounts;
+rollback;
+select * from Accounts;
+
+commit;
