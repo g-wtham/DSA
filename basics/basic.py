@@ -1839,3 +1839,78 @@ print(" ".join(cleaned_lines))
 
 # %%
 
+# These return FALSE values. All empty string, 0 value, empty sequence data types, empty dict, None type 
+
+print(bool([]))
+print(bool(()))
+print(bool({}))
+print(bool(""))
+print(bool(None))
+print(bool(0))
+print(bool(False))
+
+
+class My_bool:
+  def  __len__():
+    return 0
+    
+bool_obj = My_bool.__len__()
+print(bool(bool_obj))
+
+# %%
+x = 200
+print(isinstance(x, int))
+
+def radius(r):
+  if not isinstance(r, (int, float)):
+    raise TypeError("Invalid Input")
+  return r
+  
+
+print(radius(12))
+print(radius('12')) # gives error
+
+# %%
+
+thislist = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
+thislist[2:4] = ["orange", "apple"]
+print(thislist)
+
+thislist.insert(2, "grape")
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+tropical = ["mango", "pineapple", "papaya"]
+thislist.extend(tropical)
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+thistuple = ("kiwi", "orange")
+thislist.extend(thistuple)
+print(thislist)
+
+thistuple2 = {'name': 'Yogesh', 'age': 10}
+thislist.extend (thistuple2)
+print(thislist)
+
+thislist3 = ["apple", "banana", "cherry"]
+del thislist3[0]   # a python statement, doesnt return any value
+print(thislist3)
+
+thislist3 = ["apple", "banana", "cherry"]
+removed_element = thislist3.pop(0)
+print(removed_element)     # a list method, the popped value can be stored and returned
+print(thislist3)
+
+# List Comprehension : 
+# Accept only numbers lower than 5:
+newlist = [x for x in range(10) if x < 5]
+print(newlist)
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = [x for x in fruits if "a" in x]
+print(newlist)
+
+thislist = ["banana", "Orange", "Kiwi", "cherry"]
+thislist.sort(key = str.lower)
+print(thislist)
