@@ -1914,3 +1914,37 @@ print(newlist)
 thislist = ["banana", "Orange", "Kiwi", "cherry"]
 thislist.sort(key = str.lower)
 print(thislist)
+
+# reverse() - regardless of the order, its just reverses the list
+# sort(reverse = True) - sorts by descending order of the alphabets
+
+# Copying of lists - 1. Using copy()
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+fruits2 = fruits.copy()
+print(fruits2)
+
+# 2. Using slicing operator 
+
+fruits2 = fruits[:]
+print(fruits2)
+
+# 3. Using list() method
+
+fruits3 = list(fruits)
+print(fruits3)
+
+# List Methods -> count(), index()
+
+fruits = ["apple", "banana", "cherry", "apple", "apple"]
+print(fruits.count("apple"))
+
+# Returns 0, if not found
+
+fruits = ["apple", "banana", "cherry", "apple", "apple"]
+print(fruits.index("cherry"))
+
+# Collections of data storing in python : Lists, Tuples, Sets, Dictionaries
+
+tuple1 = ("apple1", ) # For one element, we should add comma orelse python won't consider it as a valid tuple -> tuple1 = ("apple") is incorrect
+
