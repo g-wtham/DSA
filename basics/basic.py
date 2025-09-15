@@ -1717,3 +1717,125 @@ def multiply(a, b):
 
 print(multiply(15, 10))
 # %%
+# String Methods :
+
+text = "   hello world\tthis is PYTHON 123\t\n"
+
+print(dir(text))
+
+print(text.lstrip())
+print(text.lstrip())
+print(text.strip())
+print(text.strip().capitalize())
+print(text.strip().title())
+print(text.upper())
+print(text.swapcase())
+
+# swaps the alphabets case
+
+test = 'Straße'
+print(test.casefold())
+print(test.lower())
+
+print("text12".isalnum())
+print("text".isalpha())
+print("abc".isascii())
+
+text2 = 'Ⅷ'
+print(text2.isdecimal()) # checks only 0-9 numbers
+print(text2.isnumeric()) # checks 0-9, roman numerals, and also fractions.
+print(text2.isdigit())   # checks only 0-9 and fractions, no roman numerals.
+
+text3 = "124"
+print(text3.isdecimal(), text3.isnumeric(), text3.isdigit()) # true for all 
+
+print('1test_3'.isidentifier())
+# Returns false, becoz identifier should only contain A-Z, a-z, numbers (0-9) and underscore (_). It should not start with a number, starting with _ is allowed. Any other characters are invalid, like -, ;, emojis..
+
+print('test-mode'.isidentifier()) # Returns false, as '-' shouldn't be in userdefined variable names
+
+text4 = " "
+print(text4.isspace())
+text4 = ""
+print(text4.isspace())
+
+text5 = "ababab"
+print(text5.count('ab')) # gets the count of the occurence of the substring given as parameter
+
+print(text5.find("b")) # finds the FIRST occurence index position of the given substring
+print(text5.find("c")) # If didnt found, returns -1, rather than ERROR.
+
+print(text5.index("b")) # Same as find(), differs in exception handling
+
+print(text5.index("c")) # raises error, if the substring is not found - "ValueError: substring not found". Program halts here and doesnt proceed. Use index(), if strict checking of the value is required, like you're sure about the value must exists, orelse don't proceed forward.
+
+print(text5.rfind("b")) # returns the rightmost index position of the given substring if found. 
+
+print(text5.rfind("c")) # Else, returns -1.
+
+print(text5.rindex("b")) 
+
+# print(text5.rindex("c"))
+
+filename = "syllabus.pdf"
+print(filename.endswith("pdf")) 
+
+invoice_number = "23" # If invoice number needs to be certain digits we can fill it using zfill
+print(invoice_number.zfill(10))
+print(invoice_number.center(10, '-')) # beautification
+
+print(invoice_number.replace('2', '4')) 
+
+email = 'user@gmail.com'
+print(email.partition('@')) # gives a tuple of partition by '@' symbol
+
+csv_line = "apple,banana,cherry"
+print(csv_line.split(','))
+
+data = "Name\tAge\tCity"
+print(data.expandtabs(10))
+
+# Supports int, string, etc..
+
+msg = "Hello {}, your OTP is {}"
+print(msg.format("Yogesh", 123))
+
+msg = "Hello {}, your OTP is {}"
+print(msg.format("Yogesh", "123"))
+
+# format map : uses dictionary
+
+data = {
+    "name": "Yogesh",
+    "order_id": 12345,
+    "status": "shipped"
+}
+template = "Hello, {name}! Your order ID is #{order_id} and the status is {status}."
+print(template.format_map(data))
+
+# To text censorship (or) do custom text encoding & decoding
+
+bad_text = "This is damn bad!"
+translation_table = str.maketrans({'d': '*', 'm': '@'})
+print(bad_text.translate(translation_table))
+
+# Cleaning multi-line feedback from users into single line
+# Use - splitlines(), strip(), join()
+
+feedback = """Great app!
+   
+Very useful.   
+
+Will recommend to friends.
+"""
+
+lines = feedback.splitlines()
+cleaned_lines = []
+for line in lines:
+    if line.strip():
+        cleaned_lines.append(line.strip())
+print(cleaned_lines)
+print(" ".join(cleaned_lines))
+
+# %%
+
