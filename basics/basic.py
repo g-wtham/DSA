@@ -1948,3 +1948,152 @@ print(fruits.index("cherry"))
 
 tuple1 = ("apple1", ) # For one element, we should add comma orelse python won't consider it as a valid tuple -> tuple1 = ("apple") is incorrect
 
+# Python Sets :
+
+# Available methods : add(), update(), remove()
+
+set1 = {1, True}
+print(set1)
+
+# cant access by index, as sets are unordered, hashable, unchangeable and unique values.
+# the values can be modified like in lists in sets. 
+thisset = {"apple", "banana", "cherry"}
+for item in thisset:
+    print(item)
+    
+thisset.update(set1)
+print(thisset)
+
+# Set uses hash function, so the order of insertion is not maintained while inserting the combining two items, each time the output varies by a lot.
+list2 = [1,2,3]
+thisset.update(list2)
+print(thisset)
+
+thisset = {"apple", "banana", "cherry"}
+thisset.remove("apple")
+print(thisset)
+
+thisset.discard("banana")
+print(thisset)
+
+# Note: Sets are unordered, so when using the pop() method, you do not know which item that gets removed.
+
+# Tuples dont have clear() method, list() and set() have .clear() method
+# Deletion methods : del, remove, pop; pop method will remove a random value, so better off avoid using it for deletion in a set.
+
+'''
+&  - set intersection
+| - set union
+- -> set difference
+^ - symmetric difference (keeps all values from A and B, but not the common values)
+
+Using the symbols doesn't let us use it with OTHER DATA TYPES like lists, tuples, dict, etc.. Using the set methods will let us use the various set method like :
+
+add() - adds a SINGLE element to the set
+union() - can join two sets, returns a new set (|) as output
+difference() - keeps the elements in set1 but not the ones in set2. 
+intersection() - can join two sets with their common values, returns a new set (&) as output
+symmetric_difference() - gives elements in two sets, but not the ones which are common.
+
+All these methods return a new output. It does not updates the direct sets, to directly update the sets, we should use :
+
+update() - Adds elements from another iterable to the current set.
+difference_update()	- Removes all elements from the current set that are also in another set.
+intersection_update() - Keeps only the elements that are common to both sets.
+symmetric_difference_update() - Keeps all elements that are not in both sets.
+
+For more : https://www.w3schools.com/python/python_sets_methods.asp
+'''
+
+math_class = {"John", "Alice", "Bob", "Charlie"}
+science_class = {"Alice", "David", "Eva"}
+history_class = {"Bob", "Frank", "Grace"}
+
+math_class.add("Jona")
+print(math_class)
+
+students = ["John", "Kelly", "Olivia"]
+math_class.update(students)
+print(math_class)
+
+new_class = math_class.intersection(science_class)
+print(new_class)
+
+new_class = math_class.difference(science_class)
+print(new_class)
+
+new_class = math_class.symmetric_difference(science_class)
+print(new_class)
+
+new_class = math_class.union(science_class)
+print(new_class)
+
+new_class = math_class | science_class # union
+print(new_class)
+
+new_class = math_class & science_class # intersection
+print(new_class)
+
+A = {1, 2, 3}
+B = {3, 4, 5}
+C = {1, 2, 3, 4, 5}
+D = {6, 7, 8}
+
+print(A.issubset(C))
+print(C.issuperset(A))
+
+set1 = {"apple", "banana", "cherry"}
+set2 = {"google", "microsoft", "apple"}
+set3 = {"orange", "apple", "banana", "microsoft"}
+
+print(set1.issubset(set1))
+
+# Dictionaries : 
+
+# Duplicate values will overwrite existing values:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964,
+  "year": 2020
+}
+print(thisdict)
+
+dict1 = dict(name = "Yogesh", age = 20, Status = True)
+print(dict1)
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+
+print(thisdict.get("model")) # the key value should be quoted
+print(thisdict.values())
+print(thisdict.keys())
+print(thisdict.items())
+
+# To check if the key exists in the dictionary
+if "year" in thisdict:
+    print("Exists!")
+
+# To update existing value
+dict1.update({"name" : "arun"})
+
+# To change a value :
+dict1["age"] = 25     # since its outside dictionary, = should be used
+
+# fromkeys() method = useful for quick dict initialization
+keys = ['apple', 'banana', 'cherry']
+x = dict.fromkeys(keys, 0)
+print(x)
+
+dict1.pop("name")
+dict1.popitem()
+
+# ---------------------
+a = 5
+b = 2
+print(a) if a > b else print(b)
+if a > b: print(a)
