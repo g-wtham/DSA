@@ -2097,3 +2097,80 @@ a = 5
 b = 2
 print(a) if a > b else print(b)
 if a > b: print(a)
+
+# %%
+
+def prime(n):
+    if n == 1:
+        return "Not prime or composite"
+
+    # no need to check with 1 and the number itself
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+
+    return True   
+
+prime(5)
+
+# Efficient approach using square root - as finding one of the factors of a given number is enough
+# Eg.. For 100 - 1,2,4,5,10 - as checking till 10 (it's square root will suffice), because one of the factors of 100 is within this range.
+
+import math 
+
+def prime(n):
+    if n <= 1:
+        return False
+    
+    for i in range(2, int(math.sqrt(n))+1):
+        if n % i == 0:
+            return False
+
+    return True
+
+prime(15)
+# %%
+
+# Prime numbers till n 
+
+def prime_numbers(n):
+    nos = []
+    if n <= 1:
+        return False
+    
+    def is_prime(n):
+        for i in range(2, int(math.sqrt(n))+1):
+            if n % i == 0:
+                return False
+            
+        return True
+
+    for i in range(2, n+1):
+        if is_prime(i):
+            nos.append(i)
+
+    return nos
+
+print(prime_numbers(10))
+
+def efficient_prime_numbers(n):
+    prime_bool = [True] * (n+1)
+    prime_bool[0] = prime_bool[1] = False
+
+    for i in range(2, int(math.sqrt(n))+1):
+        if prime_bool[i]:
+            for i in range(2*i, n+1, i):
+                prime_bool[i] = False
+
+    primes = []
+    for i in range(2, n+1):
+        if prime_bool[i]:
+            primes.append(i)
+
+    return primes
+
+print(efficient_prime_numbers(10))
+
+
+# %%
+
