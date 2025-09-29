@@ -2190,3 +2190,61 @@ if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
 
 else:
     print("False")
+
+# %%
+
+def find_largest_number(numbers):
+  # Handle the edge case of an empty list
+  if not numbers:
+    return None 
+
+  max_so_far = -float('inf')
+
+  for item in numbers:
+    if item > max_so_far:
+      max_so_far = item
+
+  return max_so_far
+
+my_list = [17, 9, 42, 3, 28]
+find_largest_number(my_list)
+
+# %%
+
+def fibonacci(num):
+    
+#     fib(0) = 0 
+#     fib(1) = 1
+
+#               fib(4)
+#              /      \
+#         fib(3)        fib(2)
+#        /      \      /      \
+#     fib(2)  fib(1)  fib(1)  fib(0)
+#    /      \
+# fib(1)  fib(0)
+    
+    if num == 0:
+        return 0
+    
+    if num == 1:
+        return 1
+
+    return fibonacci(num-1) + fibonacci(num-2)
+
+print(fibonacci(5))
+
+# Time complexity = O(2^N) as the values grow exponentially
+
+# To run in O(N) time complexity, we can use loops/iteration 
+
+def fibonacci_with_loop(n):
+    a, b = 0, 1
+    for _ in range(n-1):
+        a, b = b, a+b
+
+    return b
+
+print(fibonacci_with_loop(5))
+# %%
+
