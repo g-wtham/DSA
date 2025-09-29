@@ -980,7 +980,7 @@ def histogram(string: str):
     
 histogram("statistically") 
 # %%
-<<<<<<< HEAD
+
 dict1 = {}
 while True:
     option = int(input("command (1 search, 2 add, 3 quit): "))
@@ -1052,8 +1052,8 @@ database = []
 add_movie(database, "Gone with the Python", "Victor Pything", 2017, 116)
 add_movie(database, "Pythons on a Plane", "Renny Pytholin", 2001, 94)
 print(database)
-    
-=======
+
+# %%
 
 class Stack:
     def __init__(self):
@@ -2248,3 +2248,42 @@ def fibonacci_with_loop(n):
 print(fibonacci_with_loop(5))
 # %%
 
+def gcd(a, b):
+
+    small_num = min(a, b)
+    for i in range(small_num, 0, -1):
+        if (a % i == 0 and b % i == 0):
+            return i
+        
+print(gcd(20, 30))
+
+# O(N) - time complexity, O(1) = space complexity
+
+def gcd_optimized(a, b):
+    while b != 0:
+        a, b = b, (a%b)
+    
+    return a
+
+print(gcd_optimized(20, 30))
+
+# 20, 30 => 30, 20 => (20 smallest value, 10 remainder) => (20, 10) => (10, 0) => 10 is the GCD.
+# O(log min(a, b)) - time complexity, O(1) = space complexity
+# %%
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n-1)
+
+print(factorial(5))
+
+def factorial_with_loop(n):
+    result = 1
+    for i in range(1, n+1):
+        result = result * i
+    return result
+
+print(factorial_with_loop(5))
+
+# Time Complexity = O(N) for both
+# Space Complexity = O(1) for iterative approach as ONLY the values hold constant value each time; O(N) for recursive approach
