@@ -2173,4 +2173,20 @@ print(efficient_prime_numbers(10))
 
 
 # %%
+num = 2192
+rev_num = 0
+while num > 0:
+    last_digit = num % 10
+    rev_num = rev_num * 10 + last_digit
+    num = num//10
 
+print(rev_num)
+
+# %%
+
+year = 2004
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print("True")
+
+else:
+    print("False")
