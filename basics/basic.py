@@ -2287,3 +2287,47 @@ print(factorial_with_loop(5))
 
 # Time Complexity = O(N) for both
 # Space Complexity = O(1) for iterative approach as ONLY the values hold constant value each time; O(N) for recursive approach
+
+# %%
+
+arr = [1,2,2,3,4,5,5]
+result = []
+for ele in arr:
+    if ele not in result:
+        result.append(ele)
+        
+print(result)
+
+seen = set()
+result = []
+for ele in arr:
+    if ele not in seen:
+        result.append(ele)
+        seen.add(ele)
+print(result)
+
+# %%
+arr = [1,2,2,3,4,5,5]
+
+i = 0
+arr.sort()
+for j in range(1, len(arr)):
+    if arr[j] != arr[i]:
+        i += 1
+        arr[i] = arr[j]
+        
+print(arr[:i+1])
+
+# %%
+arr = [3,4,5,5,1,2,2]
+i = 0
+for j in range(len(arr)):
+    if arr[j] not in arr[:i]:
+        arr[i] = arr[j]
+        i+=1
+        
+print(arr[:i])
+
+# We are checking if the current element is not so far found till `i` elements, then place the current element in i.
+# %%
+
