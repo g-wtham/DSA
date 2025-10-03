@@ -2331,3 +2331,60 @@ print(arr[:i])
 # We are checking if the current element is not so far found till `i` elements, then place the current element in i.
 # %%
 
+# armstrong number
+
+num = 155
+
+def armstrong(num):
+    num_str = str(num)
+    n = len(num_str)
+    total = 0
+    for ele in num_str:
+        total += int(ele) ** n
+    return total == num 
+
+print(armstrong(num))
+
+# %%
+
+from math import sqrt
+
+def prime_numbers_bw(num):
+    if num <= 1:
+        return False
+    
+    for i in range(2, int(sqrt(num))+1):
+        if num % i == 0:
+            return False
+        
+    return True
+
+num = 10
+result = []
+for j in range(num):
+    if prime_numbers_bw(j):
+        result.append(j)
+        
+print(result)
+    
+# %%
+
+def prime_number(num):
+    if num <= 1:
+        return False
+     
+    for i in range(2, int(sqrt(num))+1):
+        if num % i == 0:
+            return False
+        
+    return True
+
+def prime_num_range(num1, num2):
+    result = []
+    for j in range(num1, num2+1):
+        if prime_number(j):
+            result.append(j)
+    
+    return result
+
+print(prime_num_range(3, 10))
