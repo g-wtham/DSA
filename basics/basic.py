@@ -2388,3 +2388,46 @@ def prime_num_range(num1, num2):
     return result
 
 print(prime_num_range(3, 10))
+
+# %%
+
+a = '1010'
+b = '1111'
+
+def binary_str_add(a, b):
+    return bin(int(a, 2) + int(b, 2))[2:]
+
+print(binary_str_add(a, b))
+
+# %%
+num = 6
+if num & 1 == 0:
+    print("Even")
+else:
+    print("Odd") 
+    
+# %%
+
+a,b = 12, 18
+
+def lcm(a, b):
+    greater = max(a, b)
+    while True:
+        if greater % a == 0 and greater % b == 0:
+            return greater
+        greater += 1
+            
+print(lcm(a, b))
+
+# %%
+
+a,b = 20, 28
+def gcd(a, b):
+    minimum = min(a, b)
+    for i in range(minimum, 0, -1):
+        if a % i == 0 and b % i == 0:
+            return i 
+        
+print(gcd(a, b))
+
+# %%
