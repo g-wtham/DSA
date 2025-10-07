@@ -2579,3 +2579,20 @@ for i in range(len(arr)):
     
 print(xor1 ^ xor2)
    
+# %%
+
+arr = [1,0,0,1,0,1,1]
+def maximumConsecutiveOnes(arr):
+    maxC = 0
+    cnt = 0
+    for i in range(len(arr)):
+        if arr[i] == 1:
+            cnt += 1
+            maxC = max(maxC, cnt)
+        else:
+            cnt = 0
+    
+    return maxC
+
+maximumConsecutiveOnes(arr)
+# %%
