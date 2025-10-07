@@ -2524,4 +2524,23 @@ else:
     print("Consonant")
 
 # %%
+def factorial(n):
+    if n == 1 or n == 0:
+        return 1
+    
+    return n * factorial(n-1)
+
+# using loop
+
+n = 5
+print(factorial(n))
+result = 1
+for i in range(1, n+1):
+    result = result * i
+print(result)
+
+# res = 1 * 1; res = 1 * 2; res = 2 * 3 = 6; res = 6 * 4 = 24; res = 24 * 5 = 120;
+
+# %%
+    
 
