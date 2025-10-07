@@ -2431,3 +2431,97 @@ def gcd(a, b):
 print(gcd(a, b))
 
 # %%
+
+# Display All Prime Numbers from 1 to N
+import math
+def prime_using_sieve(n):
+    if n < 2:
+        return []
+
+    is_prime = [True] * (n+1)
+    is_prime[0] = is_prime[1] = False
+
+    p = 2
+    while p <= int(math.sqrt(n)):
+        for i in range(2*p, n+1, p):
+            if is_prime[i]:
+                is_prime[i] = False
+
+        p += 1
+
+    result = []
+    for i, prime in enumerate(is_prime):
+        if prime:
+            result.append(i)
+
+    return result
+
+print(prime_using_sieve(10))
+
+
+# %%
+n = 2021
+if (n % 4 == 0 and n % 100 != 0) or (n % 400 == 0):
+    print("Leap")
+else:
+    print("Not leap year")
+
+# %%
+
+a , b = 100, 500
+
+def optimized_check_armstrong(i):
+    a = len(str(i))
+    num = i
+    total = 0
+    while i != 0:
+        digit = i % 10
+        total += digit ** a
+        i = i // 10
+
+    return total == num
+
+
+def check_armstrong(i):
+    value = str(i)
+    total = 0
+    for char in value:
+        total += int(char) ** len(value)
+    return total == i
+
+def print_armstrong_nums(a, b):
+    for i in range(a, b+1):
+        if optimized_check_armstrong(i):
+            print(i, end=" ")   
+    return 
+
+print_armstrong_nums(a, b) 
+
+# %%
+
+# Neon number
+
+n = 9
+square = n ** 2
+total = 0
+while square != 0:
+    last_digit = square % 10
+    total += last_digit
+    square = square // 10
+
+if n == total:
+    print("Neon Number")
+else:
+    print("Not neon number")
+
+# %%
+
+a = 'a'
+vowels = 'aeiou'
+if a in vowels:
+    print("Vowel")
+else:
+    print("Consonant")
+
+# %%
+
