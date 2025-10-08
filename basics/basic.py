@@ -2542,57 +2542,5 @@ print(result)
 # res = 1 * 1; res = 1 * 2; res = 2 * 3 = 6; res = 6 * 4 = 24; res = 24 * 5 = 120;
 
 # %%
-arr = [1,2,4,5]
-n = len(arr)
-for i in range(1, n+1):
-    flag = 0
-    for j in range(0, n):
-        if arr[j] == i:
-            flag = 1
-            break
-    if flag == 0:
-        print(i) 
-        
-arr = [1,2,4,5]
-def missing_number_hashing(arr):
-    n = max(arr)
-    value = [0] * (n+1)
     
-    for i in range(n-1):
-        value[arr[i]] = 1
-        
-    for i in range(1, n+1):
-        if value[i] == 0:
-            return i
-            
-print(missing_number_hashing(arr))
-     
-# Using XOR 
-n = len(arr) + 1
-xor1 = 0
-for i in range(1, n+1):
-   xor1 = xor1 ^ i
-   
-xor2 = 0
-for i in range(len(arr)):
-    xor2 = xor2 ^ arr[i]
-    
-print(xor1 ^ xor2)
-   
-# %%
 
-arr = [1,0,0,1,0,1,1]
-def maximumConsecutiveOnes(arr):
-    maxC = 0
-    cnt = 0
-    for i in range(len(arr)):
-        if arr[i] == 1:
-            cnt += 1
-            maxC = max(maxC, cnt)
-        else:
-            cnt = 0
-    
-    return maxC
-
-maximumConsecutiveOnes(arr)
-# %%
