@@ -2655,45 +2655,9 @@ print(max_len)
 
 
 # %%
-# Fibonacci Series upto nth term
-# 0, 1, 1, 2, 3, 5
 
-n = 10
-def fib(n):
-    if n == 0:
-        return 0
-
-    if n == 1:
-        return 1
-    
-    return fib(n-1) + fib(n-2)
-
-for i in range(n):
-    print(fib(i))
 # %%
 
-# prime factorization 
-
-def prime_factors(num):
-    if num <= 1:
-        return num
-
-    # does for factors of 2     
-    while num % 2 == 0:
-        print(2)
-        num = num // 2
-
-    i = 3
-    while i * i <= num:
-        while num % i == 0:
-            print(i)
-        i += 2
-
-    if num > 1:
-        print(num)
-
-
-prime_factors(10)
 
 # %%
 
