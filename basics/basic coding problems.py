@@ -87,3 +87,53 @@ def perfect_number(num):
 
 perfect_number(28)
 # %%
+
+# Perfect Square
+
+n = 36
+sr = int(n**0.5)
+print((sr * sr) == n)
+
+# %%
+
+# Friendly Pair
+
+def factors(num):
+    list1 = []
+    i = 1
+    while i < num:
+        if num % i == 0:
+            list1.append(i)
+        i += 1
+    return list1
+
+a, b = 6, 28
+
+def friendly_pair(a, b):
+    sum1, sum2 = sum(factors(a)), sum(factors(b))
+    if sum1 / a == sum2 / b:
+        return "Friendly Pair"
+    else:
+        return "Not friendly pair"
+    
+friendly_pair(a, b)
+
+# %%
+#  Abundant Number
+
+def factors(num):
+    list1 = []
+    i = 1
+    while i < num:
+        if num % i == 0:
+            list1.append(i)
+        i += 1
+    return list1
+
+def abundant_numbers(num):
+    if (sum(factors(num)) > num):
+        return "Abundant Number"
+    else:
+        return "Not Abundant Number"
+    
+abundant_numbers(12)
