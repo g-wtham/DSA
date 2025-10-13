@@ -65,3 +65,25 @@ def strong_number(n):
     return result == num
 
 print(strong_number(n))
+
+# %%
+
+# perfect number
+
+def factors(num):
+    list1 = []
+    i = 1
+    while i < num:
+        if num % i == 0:
+            list1.append(i)
+        i += 1
+    return list1
+
+def perfect_number(num):
+    if sum(factors(num)) == num:
+        print("Perfect Number")
+    else:
+        print("Not a perfect number")
+
+perfect_number(28)
+# %%
