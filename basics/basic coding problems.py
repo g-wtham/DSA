@@ -137,3 +137,36 @@ def abundant_numbers(num):
         return "Not Abundant Number"
     
 abundant_numbers(12)
+
+# %%
+
+# Expressing number interms of 2 prime numbers
+from math import sqrt
+
+def is_prime(num):
+    if num <= 1:
+        return False 
+    
+    for i in range(2, int(sqrt(num))+1):
+        if num % i == 0:
+            return False
+        
+    return True
+
+def sum_prime(num):
+    for i in range(2, num+1):
+        if is_prime(i):
+            target = num - i
+            if is_prime(target):
+                if i + target == num:
+                    print(i, target)
+                    return True
+                else:
+                    return False          
+sum_prime(15)
+
+
+
+
+
+
