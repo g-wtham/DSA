@@ -2542,5 +2542,163 @@ print(result)
 # res = 1 * 1; res = 1 * 2; res = 2 * 3 = 6; res = 6 * 4 = 24; res = 24 * 5 = 120;
 
 # %%
-    
+# Find the sum of all even Fibonacci numbers not greater than n.
 
+n = 10
+a, b = 0, 1
+total = 0
+while a <= n:
+    if a % 2 == 0:
+        total += a
+    a, b = b, a+b
+
+print(total) 
+
+# %%
+
+# Non repeating elements in an array
+
+array_1 = [1, 5, 2, 1, 3, 5, 4]
+
+freq_map = {}
+for ele in array_1:
+    if ele in freq_map:
+        freq_map[ele] += 1
+    else:
+        freq_map[ele] = 1
+
+result = []
+for item, count in freq_map.items():
+    if count == 1:
+        result.append(item)
+
+print(result)
+
+# %%
+
+# Non repeating element bruteforce
+
+array_1 = [1, 5, 2, 1, 3, 5, 4]
+result = []
+for i in range(len(array_1)):
+    picked_element = array_1[i]
+    is_repeated = False
+
+    for j in range(len(array_1)):
+        if i != j and array_1[j] == picked_element:
+            is_repeated = True
+            break
+    
+    if not is_repeated:
+        result.append(picked_element)
+
+print(result)
+# %%
+
+# Valid Anagrams:
+
+t1 = 'listen'
+t2 = 'silen'
+
+if len(t1) != len(t2):
+    print("False")
+
+t1_map = {}
+for ele in t1:
+    if ele in t1_map:
+        t1_map[ele] += 1
+    else:
+        t1_map[ele] = 1
+
+
+t2_map = {}
+for ele in t2:
+    if ele in t2_map:
+        t2_map[ele] += 1
+    else:
+        t2_map[ele] = 1
+
+print(t1_map == t2_map)
+
+# %%
+
+# Array rotation by k position
+
+arr = [1,2,3,4,5]
+k = 14
+
+if k > len(arr):
+    k = k % len(arr)
+
+print(arr[k:] + arr[:k])
+# %%
+# 15. Longest Consecutive Subsequence 
+
+lcs_input = [100, 4, 200, 1, 1, 3, 2]
+lcs_input.sort()
+length = 1
+max_len = 1
+for i in range(1, len(lcs_input)):
+    # handling edge cases
+    if lcs_input[i] == lcs_input[i-1]:
+        continue
+
+    if abs(lcs_input[i]) - abs(lcs_input[i-1]) == 1:
+        length += 1
+    else:
+        length = 1
+
+    max_len = max(max_len, length)
+
+
+print(max_len)
+
+
+# %%
+# Fibonacci Series upto nth term
+# 0, 1, 1, 2, 3, 5
+
+n = 10
+def fib(n):
+    if n == 0:
+        return 0
+
+    if n == 1:
+        return 1
+    
+    return fib(n-1) + fib(n-2)
+
+for i in range(n):
+    print(fib(i))
+# %%
+
+# prime factorization 
+
+def prime_factors(num):
+    if num <= 1:
+        return num
+
+    # does for factors of 2     
+    while num % 2 == 0:
+        print(2)
+        num = num // 2
+
+    i = 3
+    while i * i <= num:
+        while num % i == 0:
+            print(i)
+        i += 2
+
+    if num > 1:
+        print(num)
+
+
+prime_factors(10)
+
+# %%
+
+# %%
+
+# %%
+
+#%%
