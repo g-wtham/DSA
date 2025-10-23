@@ -76,15 +76,104 @@ while p1 < p2:
 print(arr)
 
 # %%
+# Increasing and Decreasing Order
 
 arr = [8, 7, 1, 6, 5, 9]
 
 for i in range(len(arr)):
-    for j in range(len(arr)):
-        if arr[j] > arr[i]:
-            arr[i], arr[j] = arr[j], arr[i]
+    for j in range(len(arr)-i-1):
+        if arr[j] > arr[j+1]:
+            arr[j], arr[j+1] = arr[j+1], arr[j]
 
-    arr[len(arr)//2:] = reversed(arr[len(arr)//2:])
+arr[len(arr)//2:] = reversed(arr[len(arr)//2:])
 
 print(arr)
+
+# %%
+
+# Find the median of an array
+
+arr = [8, 7, 1, 6, 5, 9]
+
+for i in range(len(arr)):
+    for j in range(len(arr)-i-1):
+        if arr[j] > arr[j+1]:
+            arr[j+1], arr[j] = arr[j], arr[j+1]
+
+if len(arr) % 2 == 0:
+    print(float( (arr[len(arr)//2] + arr[(len(arr)//2) - 1]) / 2 ) )
+else:
+    print(arr[len(arr)//2])
+
+
+# %%
+# EXTRA TIME METHOD - remove duplicates from sorted array and unsorted array
+ 
+result = []
+arr = [2,3,1,9,3,1,3,9]
+
+for ele in arr: 
+    if ele not in result:
+        result.append(ele)
+
+print(result)
+
+# %%
+
+# EXTRA SPACE METHOD - remove duplicates from sorted array and unsorted array
+
+seen = set()
+unique = []
+for ele in arr:
+    if ele not in seen:
+        seen.add(ele)
+        unique.append(ele)
+print(unique)
+
+# %%
+
+arr = [1,2,3,4,5]
+n = 6
+
+def insert_at_start(arr, value):
+    copy_arr = arr
+    arr = [0] * (len(arr) + 1)
+
+    arr[0] = value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    for i in range(len(copy_arr)):
+        arr[i+1] = copy_arr[i]
+
+    return arr
+
+print(insert_at_start(arr, n))
+
+def insert_at_end(arr, value):
+    copy_arr = arr
+    arr = [0] * (len(arr) + 1)
+    arr[len(arr)-1] = value   
+
+    for i in range(len(copy_arr)):
+        arr[i] = copy_arr[i]
+
+    return arr
+
+print(insert_at_end(arr, n))
+
+# [1, 2, 4, 5] -> 3rd pos - 3 -> 0,1,2 => position_index = pos - 1 
+def insert_at_specific(arr, val, pos):
+    n = len(arr)
+    new_arr = [0] * (n+1) 
+
+    for i in range(pos):
+        new_arr[i] = arr[i]
+
+    new_arr[pos] = val
+    
+    for i in range(pos, len(arr)):
+        new_arr[i+1] = arr[i]
+
+    return new_arr
+    
+print(insert_at_specific(arr, n, 3))
+
 # %%
