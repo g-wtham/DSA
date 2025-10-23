@@ -165,6 +165,7 @@ def sum_prime(num):
                     return False          
 sum_prime(15)
 
+# %%
 
 
 
